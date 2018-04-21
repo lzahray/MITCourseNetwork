@@ -7,6 +7,9 @@ class Course():
         self.undergrad = undergrad #true if Undergrad, false if grad
         self.course = name.split(".")[0] #for automatically getting course number
 
+#example:
+#x or (y and z) is ReqList([x, ReqList([y,z)],True)], False)
+
 class ReqList():
     def __init__(self, items, isAnded):
         self.items = items #list of ReqLists and maybe strings
