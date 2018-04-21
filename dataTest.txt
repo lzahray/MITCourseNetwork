@@ -1,0 +1,641 @@
+1.00 Engineering Computation and Data Science 
+______
+Undergrad (Spring) Rest Elec in Sci & Tech 
+(Subject meets with 1.001) 
+Prereq: Calculus I (GIR) 
+Units: 3-2-7 
+Lecture: MW9.30-11 (1-390) Lab: F9-11 (1-390) 
+______ 
+Presents fundamentals of computing and programming in an engineering context with an emphasis on data science. Introduces basics of web computing, data structures, and techniques for data analysis. Includes filtering, linear regression, simple machine learning (clustering and classifiers), and visualization. Surveys techniques for ingesting, processing, analyzing, and visualizing engineering data from a range of fields, including geo-spatial, environment, infrastructure, city dynamics, and numerical experiments. Students use JavaScript and HTML5 programming language to complete weekly assignments. Students taking graduate version complete additional assignments. 
+J. Williams
+No textbook information available
+1.000 Computer Programming for Engineering Applications 
+______
+Undergrad (Fall) Rest Elec in Sci & Tech 
+Prereq: None. Coreq: 18.03 
+Units: 3-2-7 
+______ 
+Presents the fundamentals of computing and computer programming (procedural and object-oriented programming) in an engineering context. Introduces logical operations, floating-point arithmetic, data structures, induction, iteration, and recursion. Computational methods for interpolation, regression, root finding, sorting, searching, and the solution of linear systems of equations and ordinary differential equations. Control of sensors and visualization of scientific data. Draws examples from engineering and scientific applications. Students use the MATLAB programming environment to complete weekly assignments. 
+X. Fu
+1.001 Engineering Computation and Data Science 
+______
+Graduate (Spring) 
+(Subject meets with 1.00) 
+Prereq: Calculus I (GIR) 
+Units: 3-2-7 
+Lecture: MW9.30-11 (1-390) Lab: F9-11 (1-390) 
+______ 
+Presents fundamentals of computing and programming in an engineering context with an emphasis on data science. Introduces basics of web computing, data structures, and techniques for data analysis. Includes filtering, linear regression, simple machine learning (clustering and classifiers), and visualization. Surveys techniques for ingesting, processing, analyzing, and visualizing engineering data from a range of fields, including geo-spatial, environment, infrastructure, city dynamics, and numerical experiments. Students use JavaScript and HTML5 programming language to complete weekly assignments. Students taking graduate version complete additional assignments. 
+Staff
+No textbook information available
+1.007 Big Engineering: Small Solutions with a Large Impact 
+______
+Undergrad (Fall) 
+Prereq: None 
+Units: 3-0-3 
+______ 
+Provides a practical introduction to key topics, current research and innovative methods in the diverse field of civil and environmental engineering. Discusses career opportunities, innovation, and entrepreneurship. Under faculty supervision, students work on projects in areas such as renewable energy, sustainable design, food security, climate change, and transportation. Projects focus on design of novel solutions to grand challenges related to infrastructure, systems and the environment, and include elements of the different areas to demonstrate the interconnectedness of the discipline. Preference to first-year students and Course 1 sophomores. 
+B. Marelli
+1.010 Uncertainty in Engineering 
+______
+Undergrad (Fall) 
+Prereq: Calculus II (GIR) 
+Units: 5-0-7 
+______ 
+Introduces probability and statistics with an emphasis on understanding, quantifying, and modeling uncertainty. Topics include events and their probability, the total probability and Bayes' theorems, discrete and continuous random variables and vectors, covariance, correlations, and conditional analysis. Random sampling, estimation of distribution parameters (method of moments, maximum likelihood, Bayesian estimation), and simple and multiple linear regression. Concepts illustrated with examples from various areas of engineering and everyday life. Integrates applications with statistical computing and graphics. 
+S. Saavedra Sanchez
+1.011 Project Evaluation and Management 
+______
+Undergrad (Spring) 
+Prereq: None 
+Units: 3-1-8 
+Lecture: TR1-2.30 (3-442) Recitation: R2.30 (5-217) 
+______ 
+Develops skills to evaluate a project or program using economic, environmental, and equity metrics, and to plan, execute and manage its progress to completion. Introduces students to engineering projects that are typically large-scale and long-lived, and involve many economic, financial, social and environmental factors. Covers net present value analysis, life-cycle costing, and benefit-cost analysis. Culminates in a term project in which small teams study a historical or prospective project of their choosing. Instruction and practice in oral and written communication provided. 
+Staff
+No textbook information available
+1.013 Senior Civil and Environmental Engineering Design 
+______
+Undergrad (Spring) 
+Prereq: Permission of instructor 
+Units: 2-6-4 
+Lecture: T3-5 (48-316) Lab: TBA 
+______ 
+Students engage with faculty around a topic of mutual interest, building on the knowledge/skills gained throughout their program. Synthesizes prior coursework and experiences through a semester-long design project and related assignments. Students form teams to work on projects of their choosing, focusing in depth on the diverse areas within civil and environmental engineering. Teams demonstrate creativity in applying theories and methodologies while considering their project's technical, environmental and social feasibility. Includes lectures on a variety of related engineering concepts, as well as scholarship and engineering practice and ethics. Provides instruction and practice in oral and written communication.
+C. Harvey
+No textbook information available
+1.015[J] Design of Electromechanical Robotic Systems 
+______
+Undergrad (Spring) Partial Lab 
+(Same subject as 2.017[J]) 
+Prereq: 2.003; Coreq: 2.005, 2.05 and 2.051, or 2.016; 2.671 
+Units: 3-3-6 
+Lecture: TR11-12.30 (1-134) Lab: W2-5 (5-007) or F2-5 (NW98-188) 
+______ 
+Design, construction, and testing of field robotic systems, through team projects with each student responsible for a specific subsystem. Projects focus on electronics, instrumentation, and machine elements. Design for operation in uncertain conditions is a focus point, with ocean waves and marine structures as a central theme. Basic statistics, linear systems, Fourier transforms, random processes, spectra and extreme events with applications in design. Lectures on ethics in engineering practice included. Satisfies 6 units of Institute Laboratory credit. Enrollment may be limited due to laboratory capacity. 
+N. Triantafyllou
+No textbook information available
+1.016[J] Design for Complex Environmental Issues: Building Solutions and Communicating Ideas 
+(New) 
+______
+Undergrad (Spring) 
+(Same subject as 2.00C[J], EC.746[J]) 
+Prereq: None 
+Units: 3-1-5 
+Lecture: MW3-4.30 (16-168) Recitation: F3 (16-168) 
+______ 
+Students work in small groups, under the guidance of researchers from MIT, to pursue specific aspects of the year's Terrascope problem. Teams design and build prototypes, graphic displays and other tools to communicate their findings and display them in a Bazaar of Ideas open to the MIT community. Some teams develop particular solutions, others work to provide deeper understanding of the issues, and others focus on ways to communicate these ideas with the general public. Students' work is evaluated by independent experts. Offers students an opportunity to develop ideas from the fall semester and to work in labs across MIT. Limited to first-year students. 
+A. W. Epstein, S. L. Hsu
+No textbook information available
+1.018A[J] Fundamentals of Ecology I 
+______
+Undergrad (Fall); first half of term 
+(Same subject as 7.30A[J], 12.031A[J]) 
+Prereq: None 
+Units: 2-0-4 
+______ 
+Fundamentals of ecology, considering Earth as an integrated dynamic living system. Coevolution of the biosphere and geosphere, biogeochemical cycles, metabolic diversity, primary productivity, competition and the niche, trophic dynamics and food webs, population growth and limiting factors. Combination of 1.018A and 1.018B counts as REST subject. 
+O. Cordero Sanchez
+1.018B[J] Fundamentals of Ecology II 
+______
+Undergrad (Fall); second half of term 
+(Same subject as 7.30B[J], 12.031B[J]) 
+Prereq: 1.018A 
+Units: 2-0-4 
+______ 
+Advanced topics in Ecology. Population modeling, global carbon cycle, climate change, geoengineering, theories of resource competition and mutualism, allometric scaling, ecological genomics, niche theory, human population growth. Applied ecology. Combination of 1.018A and 1.018B counts as REST subject. 
+O. Cordero Sanchez
+1.020 Engineering Sustainability: Analysis and Design 
+______
+Undergrad (Spring) 
+Prereq: Physics I (GIR); 18.03; 1.00 or 1.000 
+Units: 3-2-7 
+Lecture: MW10.30-12 (1-246) Recitation: F10-12 (1-246) +final 
+______ 
+Introduces a systems approach to modeling, analysis, and design of sustainable systems. Covers principles of dynamical systems, network models, optimization, and control, with applications in ecosystems, infrastructure networks, and energy systems. Includes a significant programming component. Students implement and analyze numerical models of systems, and make design decisions to balance physical, environmental, and economic considerations based on real and simulated data. 
+S. Amin
+No textbook information available
+1.021 Introduction to Modeling and Simulation 
+______
+Undergrad (Spring) Rest Elec in Sci & Tech 
+Engineering School-Wide Elective Subject. 
+(Offered under: 1.021, 3.021, 10.333, 22.00) 
+Prereq: 18.03, 3.016, or permission of instructor 
+Units: 4-0-8 
+Lecture: TR3-4.30 (4-231) Recitation: M4 (8-205) or F4 (8-205) 
+______ 
+Basic concepts of computer modeling and simulation in science and engineering. Uses techniques and software for simulation, data analysis and visualization. Continuum, mesoscale, atomistic and quantum methods used to study fundamental and applied problems in physics, chemistry, materials science, mechanics, engineering, and biology. Examples drawn from the disciplines above are used to understand or characterize complex structures and materials, and complement experimental observations. 
+M. Buehler, R. Gomez-Bombarelli
+No textbook information available
+1.022 Introduction to Network Models 
+______
+Undergrad (Fall); second half of term 
+Prereq: 1.00 or 1.000; 18.03; 1.010; or permission of instructor 
+Units: 3-0-3 
+______ 
+Provides an introduction to complex networks, their structure, and function, with examples from engineering, applied mathematics and social sciences. Topics include spectral graph theory, notions of centrality, random graph models, contagion phenomena, cascades and diffusion, and opinion dynamics. 
+A. Jadbabaie-Moghadam
+1.032 Advanced Soil Mechanics 
+______
+Undergrad (Fall); first half of term 
+(Subject meets with 1.361) 
+Prereq: 1.010, 1.011, 1.036 
+Units: 3-0-6 
+______ 
+Covers topics in the characterization and nature of soils as multi-phase materials; the principle of effective stress; hydraulic conductivity and groundwater seepage; shear strength and stability analyses; stress-deformation properties, consolidation theory and calculation of settlements for clays and sands. Students taking graduate version complete additional assignments. 
+A. Whittle
+1.035 Multiscale Characterization of Materials 
+______
+Undergrad (Spring) 
+Prereq: 1.050, 18.03 
+Units: 3-3-6 
+Lecture: MWF11 (1-273) Lab: T2-5 (1-050) +final 
+______ 
+Introduces the structure and properties of natural and manufactured building materials. Emphasizes effects of molecular and nanoscopic structure and interactions on macroscopic material behavior. Focuses on design of biological and artificial structural materials. Discusses material aspects of sustainable development. Includes durability, deterioration mechanisms, and damage assessment of building materials. Presents principles of experimental characterization techniques. Explores spectroscopic, microscopic and mechanical approaches to characterize structure and properties from molecular up to the macroscopic scale. In laboratory and in-field sessions, students design and implement experimental approaches to characterize natural and building materials and study their interaction with the environment. 
+F. Ulm
+No textbook information available
+1.036 Structural Mechanics and Design 
+______
+Undergrad (Spring) 
+Prereq: 1.035, 1.050 
+Units: 3-1-8 
+Lecture: MW1-2.30 (1-246) Recitation: F1 (1-246) 
+______ 
+Familiarizes students with structural systems, loads, and basis for structural design, including analysis of determinate and indeterminate structures (trusses, beams, frames, cables, and arches). Covers mechanical properties of construction materials, including concrete, steel, and composites. Studies concrete and steel structures through application of principles of structural mechanics. Evaluates behavior and design of reinforced concrete structural elements using limit strength design and serviceability principles. Introduces plastic analysis and design, and load factor design of structural steel members and connections. Team project emphasizes material covered through behavior and problem-based learning. 
+O. Buyukozturk
+Textbooks (Spring 2018)
+1.037 Soil Mechanics and Geotechnical Design 
+______
+Undergrad (Spring) 
+Prereq: None 
+Units: 3-2-7 
+Lecture: MWF10 (1-371) Recitation: R1 (1-371) 
+______ 
+Provides an introduction to soils as engineering materials, including classification and characterization, pore pressures and seepage, principles of effective stress and consolidation, deformation, and shear strength properties. Surveys analysis methods, with a focus on slope stability, limiting earth pressures and bearing capacity, and settlements of foundations. Examines applications in the design of earth dams, earth retaining systems, foundations, and staged construction processes. 
+A. Whittle
+No textbook information available
+1.041 Transportation Systems Modeling 
+______
+Undergrad (Spring) 
+Prereq: 1.00 or 1.000; 1.010 
+Units: 3-1-8 
+Lecture: MW9-10.30 (1-134) Recitation: F9 (1-134) 
+______ 
+Introduces basic concepts of transportation systems modeling, data analysis and visualization techniques. Covers fundamental analytical and simulation-based methodologies. Topics include time-space diagrams, cumulative plots, queueing theory, network science, data analysis, and their applications. Provides students with an understanding of the current challenges and opportunities in different areas of transportation. 
+C. Osorio Pizano
+No textbook information available
+1.044[J] Fundamentals of Energy in Buildings 
+______
+Not offered academic year 2017-2018Undergrad (Fall) Rest Elec in Sci & Tech 
+(Same subject as 2.66[J], 4.42[J]) 
+Prereq: Physics I (GIR), Calculus II (GIR) 
+Units: 3-2-7 
+______ 
+Design-based introduction to energy and thermo-sciences, with applications to sustainable, energy-efficient architecture and building technology. Covers introductory thermodynamics, air/water/vapor mixtures, and heat transfer. Studies leading order factors in building energy use. Includes several building design projects in which students creatively employ energy fundamentals and building energy use. 
+Staff
+1.050 Solid Mechanics 
+______
+Undergrad (Fall) Rest Elec in Sci & Tech 
+Prereq: Physics I (GIR); Coreq: Calculus II (GIR) 
+Units: 3-2-7 
+______ 
+Basic principles of mechanics to describe the behavior of materials, structures and fluids. Dimensional analysis, conservation of momentum, static equilibrium, stress and stress states, hydrostatics, moments and forces. Material and structural strength criteria. Deformation and strain. Conservation of energy in solid mechanics, elasticity and elasticity bounds. Energy dissipation, plasticity and fracture. Open-ended geotechnical and structural engineering studio exercises and experiments with natural and man-made physical systems. 
+F. Ulm
+1.053[J] Dynamics and Control I 
+______
+Undergrad (Fall, Spring) Rest Elec in Sci & Tech 
+(Same subject as 2.003[J]) 
+Prereq: Physics II; Coreq: 18.03 or 2.087 
+Units: 4-1-7 
+Lecture: MW9.30-11 (3-270) Recitation: R2 (1-242) or R3 (1-242) or F10 (1-375) or F11 (1-375) +final 
+______ 
+Introduction to the dynamics and vibrations of lumped-parameter models of mechanical systems. Kinematics. Force-momentum formulation for systems of particles and rigid bodies in planar motion. Work-energy concepts. Virtual displacements and virtual work. Lagrange's equations for systems of particles and rigid bodies in planar motion. Linearization of equations of motion. Linear stability analysis of mechanical systems. Free and forced vibration of linear multi-degree of freedom models of mechanical systems; matrix eigenvalue problems. 
+Fall: T. Sapsis
+Spring: A. Rodriguez Garcia
+No textbook information available
+1.054 Mechanics and Design of Concrete Structures 
+______
+Undergrad (Fall) 
+(Subject meets with 1.541) 
+Prereq: 1.035 
+Units: 3-0-9 
+______ 
+Studies strength and deformation of concrete under various states of stress; failure criteria; concrete plasticity; and fracture mechanics concepts. Topics include fundamental behavior of reinforced concrete structural systems and their members; basis for design and code constraints; high-performance concrete materials and their use in innovative design solutions; and yield line theory for slabs. Uses behavior models and nonlinear analysis. Covers complex systems, including bridge structures, concrete shells, and containments. Students taking graduate version complete additional assignments. 
+O. Buyukozturk
+1.056[J] Building Structural Systems I 
+______
+Undergrad (Spring) Rest Elec in Sci & Tech 
+(Same subject as 4.440[J])
+(Subject meets with 4.462) 
+Prereq: Calculus II (GIR) 
+Units: 3-3-6 
+https://architecture.mit.edu/subject/spring-2018-4440 
+Lecture: MW9.30-11 (3-333) Lab: F9.30-11.30 (8-205) +final 
+______ 
+Introduces the design and behavior of large-scale structures and structural materials. Emphasizes the development of structural form and the principles of structural design. Presents design methods for timber, masonry, concrete and steel applied to long-span roof systems, bridges, and high-rise buildings. Includes environmental assessment of structural systems and materials. In laboratory sessions, students solve structural problems by building and testing simple models. Graduate and undergraduate students have separate lab sections. 
+J. Carstensen
+Textbooks (Spring 2018)
+1.057 Heritage Science and Technology 
+(New) 
+______
+Undergrad (Fall) 
+Prereq: Permission of instructor 
+Units: 2-3-4 
+______ 
+Interdisciplinary, applied introduction to ancient materials and technology. Students explore materials sustainability and durability from multiple perspectives, using ancient societies, architecture and building materials as time-proven examples of innovation in construction. Involves discussions of peer-reviewed literature and cultural heritage, project formulation, data collection, and data analysis. Culminates in presentation of research project(s), and write-ups of the research in manuscript form. 
+A. Masic
+1.058 Structural Dynamics 
+______
+Undergrad (Fall) 
+(Subject meets with 1.581[J], 2.060[J], 16.221[J]) 
+Prereq: 18.03 or permission of instructor 
+Units: 3-1-8 
+______ 
+Examines response of structures to dynamic excitation: free vibration, harmonic loads, pulses and earthquakes. Covers systems of single- and multiple-degree-of-freedom, up to the continuum limit, by exact and approximate methods. Includes applications to buildings, ships, aircraft and offshore structures. Students taking graduate version complete additional assignments. 
+T. Cohen
+1.060A Fluid Mechanics I 
+______
+Undergrad (Spring); first half of term 
+Prereq: Permission of instructor or Coreq: 18.03 
+Units: 2-1-3 
+Ends Mar 23. Lecture: MWF11 (1-132) Recitation: T10-12 (1-132) or F2.30-4.30 (1-132) 
+______ 
+Mechanics principles for incompressible fluids. Review of hydrostatics. Conservation of mass, momentum and energy in fluid mechanics. Flow nets, velocity distributions in laminar and turbulent flows, groundwater flows. Momentum and energy principles in hydraulics, with emphasis on open channel flow and hydraulic structures. 
+B. Marelli
+No textbook information available
+1.060B Fluid Mechanics II 
+______
+Undergrad (Spring); second half of term 
+Prereq: 1.060A 
+Units: 2-1-3 
+Begins Apr 2. Lecture: MWF11 (1-132) Recitation: T10-12 (1-132) or F2.30-4.30 (1-132) +final 
+______ 
+Mechanics principles for incompressible fluids. Drag and lift forces. Analysis of pipe systems, pumps and turbines. Gradually varied flow in open channels, significance of the Froude number, backwater curves. Application of principles through open-ended studio exercises. 
+B. Marelli
+No textbook information available
+1.061 Transport Processes in the Environment 
+______
+Undergrad (Fall) 
+(Subject meets with 1.61) 
+Prereq: 1.060B 
+Units: 3-1-8 
+______ 
+Introduction to mass transport in environmental flows, with emphasis on river and lake systems. Covers derivation and solutions to the differential form of mass conservation equations, hydraulic models for environmental systems, residence time distribution, molecular and turbulent diffusion for continuous and point sources, boundary layers, dissolution, bed-water exchange, air-water exchange, and particle transport. Meets with 1.061A first half of term. Students taking graduate version complete additional assignments. 
+H. Nepf
+1.061A Transport Processes in the Environment I 
+______
+Undergrad (Fall); first half of term 
+Prereq: 1.060A 
+Units: 2-1-3 
+______ 
+Introduction to mass transport in environmental flows. Covers derivation and solution to the differential form of mass conservation, hydraulic models for environmental systems, residence time distribution, and molecular and turbulent diffusion for continuous and point sources. Meets with 1.061 first half of term. 
+H. Nepf
+1.062[J] Nonlinear Dynamics: Continuum Systems 
+______
+Undergrad (Spring) 
+(Same subject as 12.207[J], 18.354[J])
+(Subject meets with 18.3541) 
+Prereq: 18.03 or 18.032; Physics II (GIR) 
+Units: 3-0-9 
+Lecture: MW11.30-1 (8-205) 
+______ 
+General mathematical principles of continuum systems. From microscopic to macroscopic descriptions in the form of linear or nonlinear (partial) differential equations. Exact solutions, dimensional analysis, calculus of variations and singular perturbation methods. Stability, waves and pattern formation in continuum systems. Subject matter illustrated using natural fluid and solid systems found, for example, in geophysics and biology. 
+L. Bourouiba
+No required or recommended textbooks
+1.064 Physical Limnology 
+______
+Not offered academic year 2018-2019Undergrad (Spring) 
+(Subject meets with 1.64) 
+Prereq: 1.061 
+Units: 3-0-9 
+Lecture: MW10.30-12 (48-308) 
+______ 
+Provides an introduction to physical processes occurring in lakes and shallow surface water systems with emphasis on mechanisms affecting fate and transport. Topics include internal waves, differential heating and cooling, boundary mixing, turbulent mixing, and influence of vegetation. Begins with a review of Navier-Stokes equation. Students taking graduate version complete additional assignments. 
+H. Nepf
+No textbook information available
+1.068 Nonlinear Dynamics and Turbulence 
+______
+Not offered academic year 2017-2018Undergrad (Spring) 
+(Subject meets with 1.686[J], 2.033[J], 18.358[J]) 
+Prereq: 1.060A 
+Units: 3-2-7 
+______ 
+Reviews theoretical notions of nonlinear dynamics, instabilities, and waves with applications in fluid dynamics. Discusses hydrodynamic instabilities leading to flow destabilization and transition to turbulence. Focuses on physical turbulence and mixing from homogeneous isotropic turbulence. Also covers topics such as rotating and stratified flows as they arise in the environment, wave-turbulence, and point source turbulent flows. Laboratory activities integrate theoretical concepts covered in lectures and problem sets. Students taking graduate version complete additional assignments. 
+Staff
+1.070A[J] Introduction to Hydrology and Water Resources 
+______
+Undergrad (Fall); first half of term 
+(Same subject as 12.320A[J]) 
+Prereq: 1.060A; Coreq: 1.061A, 1.106 
+Units: 2-0-4 
+______ 
+Water in the environment; Water resource systems; The hydrologic cycle at its role in the climate system; Surface water and energy balance; evaporation and transpiration through vegetation; Precipitation formation, infiltration, storm runoff, and flood processes; Groundwater aquifers, subsurface flow and the hydraulics of wells. 
+D. Entekhabi
+1.070B[J] Introduction to Hydrology Modeling 
+______
+Undergrad (Fall); second half of term 
+(Same subject as 12.320B[J]) 
+Prereq: 1.070A 
+Units: 2-0-4 
+______ 
+Develops understanding of numerical modeling of aquifers, groundwater flow and contaminant transport, as well as uncertainty and risk analysis for water resources. 
+D. Entekhabi
+1.071[J] Global Change Science 
+______
+Not offered academic year 2017-2018Undergrad (Fall) 
+(Same subject as 12.300[J]) 
+Prereq: 18.03 
+Units: 3-0-9 
+______ 
+Introduces the basic relevant principles and concepts in atmospheric physics, climate dynamics, biogeochemistry, and water and energy balance at the land-atmosphere boundary, through an examination of two current problems in the global environment: carbon dioxide and global warming; and tropical deforestation and regional climate. An introduction to global environmental problems for students in basic sciences and engineering. 
+Staff
+1.072 Groundwater Hydrology 
+______
+Undergrad (Fall) 
+(Subject meets with 1.72) 
+Prereq: 1.061 
+Units: 3-1-8 
+______ 
+Presents the fundamentals of subsurface flow and transport, emphasizing the role of groundwater in the hydrologic cycle, the relation of groundwater flow to geologic structure, and the management of contaminated groundwater. Topics include Darcy equation, flow nets, mass conservation, the aquifer flow equation, heterogeneity and anisotropy, storage properties, regional circulation, unsaturated flow, recharge, stream-aquifer interaction, well hydraulics, flow through fractured rock, numerical models, groundwater quality, contaminant transport processes, dispersion, decay, and adsorption. Includes laboratory and computer demonstrations. Students taking graduate version complete additional assignments. 
+C. Harvey
+1.073 Introduction to Environmental Data Analysis 
+______
+Undergrad (Spring); first half of term 
+Prereq: 1.010 
+Units: 2-0-4 
+Ends Mar 23. Lecture: MW2.30-4.30 (48-316) 
+______ 
+Covers theory and practical methods for the analysis of univariate data sets. Topics include basics of statistical inference, analysis of trends and stationarity; Gaussian stochastic processes, covariance and correlation analysis, and introduction to spectral analysis. Students analyze data collected from the civil, environment, and systems domains. 
+E. Eltahir
+No textbook information available
+1.074 Multivariate Data Analysis 
+______
+Undergrad (Spring); first half of term 
+Prereq: 1.010 
+Units: 2-0-4 
+Begins Apr 2. Lecture: MW2.30-4 (2-105) Recitation: F3 (2-105) +final 
+______ 
+Introduction to statistical multivariate analysis methods and their applications to analyze data and mathematical models. Topics include sampling, experimental design, regression analysis, specification testing, dimension reduction, categorical data analysis, classification and clustering. 
+M. Ben-Akiva
+No textbook information available
+1.075 Water Resource Systems 
+______
+Undergrad (Fall) 
+(Subject meets with 1.731) 
+Prereq: 1.070B or permission of instructor 
+Units: 3-0-9 
+______ 
+Surveys optimization and simulation methods for management of water resources. Case studies illustrate linear, quadratic, nonlinear programming and real-time control. Applications include river basin planning, irrigation and agriculture, reservoir operations, capacity expansion, assimilation of remote sensing data, and sustainable resource development. Students taking graduate version complete additional assignments. 
+D. Mc Laughlin
+1.078 Introduction to Soil Science 
+______
+Not offered academic year 2017-2018Undergrad (Fall) 
+(Subject meets with 1.78) 
+Prereq: None 
+Units: 3-1-8 
+______ 
+Presents the physical, chemical, biological and genetic properties of soils, their global distribution, and response to management. Emphasizes factors controlling soil development, plant productivity, and the fate, cycling and bioavailability of soil nutrients and pollutants. Introduces Earth's different soil types and their classification; links characteristics with contemporary and historic issues surrounding natural and managed soil systems. Topics include soil carbon cycling, water and fertilizer management, and challenges associated with soil salinity-sodicity, erosion, and pollution. Includes field trips to local sites to examine soil physical properties, classification, and function. Introductory biology and chemistry are recommended prerequisites. Students taking graduate version complete additional assignments. 
+Staff
+1.079 Rock-on-a-Chip: Microfluidic Technology for Visualization of Flow in Porous Media 
+______
+Not offered academic year 2017-2018Undergrad (Spring) 
+Prereq: Physics II (GIR), 1.050, 1.060B; 1.000, 1.00, or 6.00; or permission of instructor 
+Units: 2-2-8 
+Subject Cancelled Subject Cancelled 
+______ 
+Introduces an innovative approach that uses 3D printing and microfluidic technology to characterize and visualize flow in porous media like soils and rocks. Covers single-phase flow and transport (laser fluorescence, particle image velocimetry), capillarity and wettability, multiphase flow, fracturing of granular media. In lab, students work in groups to unravel the physics and chemistry of flow in porous media, with applications to energy and environmental processes, such as groundwater resources, energy recovery, and carbon sequestration. Enrollment limited; preference to Course 1 majors and Energy Studies minors. 
+Staff
+1.080A Environmental Chemistry I 
+______
+Undergrad (Spring); first half of term 
+Prereq: Chemistry (GIR) 
+Units: 2-0-4 
+Ends Mar 23. Lecture: MF1-2.30 (48-316) Recitation: F2.30 (48-316) 
+______ 
+Introduction to environmental chemistry with a focus on using thermodynamics to understand processes governing chemical behaviors in natural and engineered systems. Topics include vaporization, gas-solution partitioning, salt and mineral dissolution/precipitation, acid-base chemistry, metal complexation, adsorption via ion exchange, and absorption within natural organic matter and organism tissues. Process formulations are combined in box models to compare with observations. 
+P. Gschwend
+No textbook information available
+1.080B Environmental Chemistry II 
+______
+Undergrad (Spring); second half of term 
+Prereq: 1.080A 
+Units: 2-0-4 
+Begins Apr 2. Lecture: MF1-2.30 (48-316) Recitation: F2.30 (48-316) 
+______ 
+Intermediate topics in environmental chemistry requiring kinetics to understand processes governing biogeochemical behaviors in natural and engineered systems. Topics include atmospheric oxidations, radiochemistry, mass transfers, and catalysis. Introduction to geochemical modeling using transport and transformation process formulations are combined in chemical fate models to compare with observations of concentrations as a function of space and time. 
+P. Gschwend
+No textbook information available
+1.081[J] Environmental Cancer Risks, Prevention, and Therapy 
+______
+Undergrad (Spring) 
+(Same subject as 20.104[J]) 
+Prereq: Calculus II (GIR), Biology (GIR), Chemistry (GIR) 
+Units: 3-0-9 
+Lecture: TR1-2.30 (16-220) 
+______ 
+Analysis of the history of cancer and vascular disease mortality rates in predominantly European- and African-American US cohorts, 1895-2010, to discover specific historical shifts. Shifts identified are explored in terms of contemporaneously changing environmental risk factors: air-, food- and water-borne chemicals; subclinical infections; diet and lifestyles. Role of occupational data identifying general risk factors. Considers the hypotheses that environmental factors affect metakaryotic stem cell mutation rates in fetuses and juveniles and/or the growth rates of preneoplastic stem cells in adults. Interaction of environmental and inherited risks. Introduces the use of metakaryocidal drugs to treat cancer in clinical trials.
+W. Thilly
+No textbook information available
+1.082 Ethics for Engineers 
+______
+Undergrad (Fall, Spring) 
+Engineering School-Wide Elective Subject. 
+(Offered under: 1.082, 2.900, 6.904, 10.01, 22.014)
+(Subject meets with 6.9041) 
+Prereq: None 
+Units: 2-0-4 
+Lecture: M3-5 (66-168) or T3-5 (66-168) or T EVE (7.30-9.30 PM) (66-144) or W3-5 (66-160) or T EVE (7.30-9.30 PM) (66-156) 
+______ 
+Integrates classical readings that provide an overview of ethics with a survey of case studies that focus on ethical problems arising in the practice of engineering. Readings taken from a variety of sources, such as Aristotle, Machiavelli, Bacon, Hobbes, Locke, the Founding Fathers, and the Bible. Case studies include written analyses and films that address engineering disasters, biotechnology, court cases, ethical codes, and the ultimate scope and aims of engineering. Students taking independent inquiry version 6.9041 expand the scope of their term project. 
+Fall: B. Trout
+Spring: B. Trout
+No textbook information available
+1.084[J] Systems Microbiology 
+______
+Not offered academic year 2017-2018Undergrad (Fall) 
+(Same subject as 20.106[J]) 
+Prereq: Chemistry (GIR), Biology (GIR) 
+Units: 3-0-9 
+______ 
+Introductory microbiology from a systems perspective - considers microbial diversity and the integration of data from a molecular, cellular, organismal, and ecological context to understand the interaction of microbial organisms with their environment. Special emphasis on specific viral, bacterial, and eukaryotic microorganisms and their interaction with animal hosts with focus on contemporary problems in areas such as vaccination, emerging disease, antimicrobial drug resistance, and toxicology. 
+Staff
+1.085[J] Air Pollution 
+______
+Undergrad (Fall) 
+(Same subject as 12.336[J]) 
+Prereq: 18.03 
+Units: 3-0-9 
+______ 
+Provides a working knowledge of basic air quality issues, with emphasis on a multidisciplinary approach to investigating the sources and effects of pollution. Topics include emission sources; atmospheric chemistry and removal processes; meteorological phenomena and their impact on pollution transport at local to global scales; air pollution control technologies; health effects; and regulatory standards. Discusses regional and global issues, such as acid rain, ozone depletion and air quality connections to climate change. 
+C. Heald
+1.087 Fundamentals of Network and Community Ecology 
+(New) 
+______
+Undergrad (Spring) 
+(Subject meets with 1.873) 
+Prereq: 18.06 
+Units: 3-0-9 
+Lecture: TR10.30-12 (48-316) 
+______ 
+Centers on mathematical tools linking external perturbations with the structure and persistence of ecological communities - the ensemble of co-occurring and interacting species. Focuses on unstructured populations ranging from single, to pairs, to multiple species. Covers population dynamics, species interactions, stability, feasibility, species coexistence, and perturbations. Lectures address phenomenological and mechanistic understanding through graphical, analytical and numerical analysis. Students taking graduate version complete additional assignments. 
+S. Saavedra Sanchez
+No textbook information available
+1.089 Environmental Microbiology 
+______
+Undergrad (Spring) 
+(Subject meets with 1.89) 
+Prereq: Biology (GIR) 
+Units: 3-0-9 
+Lecture: TR9.30-11 (48-308) 
+______ 
+Provides a general introduction to the diverse roles of microorganisms in natural and artificial environments. Topics include energetics and growth, evolution and gene flow, population and community dynamics, water and soil microbiology, biogeochemical cycling, and microorganisms in biodeterioration and bioremediation. 7.014 recommended as prerequisite; students taking graduate version complete additional assignments. Meets with 1.089A first half of term. 
+M. Polz
+No textbook information available
+1.089A Environmental Microbiology I 
+______
+Undergrad (Spring); first half of term 
+Prereq: Biology (GIR) or permission of instructor 
+Units: 3-0-3 
+Ends Mar 23. Lecture: TR9.30-11 (48-308) 
+______ 
+Provides a general introduction to the diverse roles of microorganisms in natural and artificial environments. Topics include energetics, and growth; metabolic interactions; water and soil microbiology; biogeochemical cycling; microbial diversity. 7.014 recommended as prerequisite. Meets with 1.089 first half of term. 
+M. Polz
+No textbook information available
+1.091 Traveling Research Environmental eXperience (TREX): Fieldwork 
+______
+Undergrad (IAP) 
+Prereq: Permission of instructor 
+Units: 1-2-0 
+______ 
+Introduction to environmental fieldwork and research, with a focus on data collection and analysis. Subject spans three weeks, including two weeks of fieldwork, and involves one or more projects central to environmental science and engineering. Location varies year-to-year, though recent projects have focused on the island of Hawaii. Limited to Course 1 students. 
+B. Kocar
+No textbook information available
+1.092 Traveling Research Environmental eXperience (TREX): Fieldwork Analysis and Communication 
+______
+Undergrad (Spring) 
+Prereq: 1.091 
+Units: 1-3-5 
+Lecture: TR1-3 (48-109) 
+______ 
+Building on fieldwork and research conducted in 1.091 over IAP, students focus on interpretation of results and research in support of the fieldwork, with instruction and practice in oral and written communication. Includes a survey of the relevant peer-reviewed literature; laboratory measurements of field samples and/or instrumental response; data analysis and interpretation; and dissemination of results. Culminates in presentation of research project(s), and write-ups of the research in manuscript form. Sequence of 1.091 and 1.092 must be completed in consecutive terms. Limited to Course 1 majors and minors. 
+B. Kocar
+No textbook information available
+1.097 Introduction to Civil and Environmental Engineering Research 
+______
+Undergrad (IAP) 
+Prereq: None 
+Units: 1-5-0 [P/D/F] 
+______ 
+Students work one-on-one with a CEE graduate student or postdoc mentor on a project that aligns with their research interests. Previous project topics include transportation networks, structural mechanics, sediment transport, climate science, and microbial ecology. Includes weekly seminar-style talks. Intended for first-year students. 
+K. Clapper
+No textbook information available
+Undergraduate Laboratory Subjects
+1.101 Introduction to Civil and Environmental Engineering Design I 
+______
+Undergrad (Fall) Partial Lab 
+Prereq: None 
+Units: 0-4-2 
+______ 
+Introduces the creative design process in the context of civil and environmental engineering. Emphasizes the idea-to-product trajectory: identification of a design question/problem, evaluation of requirements/constraints set by the application and/or client, and implementation into a concrete product deliverable. Fosters active learning through open-ended, student-driven projects in which teams apply the design process to a design/planning problem. In labs, students design and build a working model or an experiment that addresses a specific engineering aspect of their project. In addition to written and oral presentations, students start a web-based portfolio. Satisfies 6 units of Institute Laboratory credit. Enrollment limited; preference to Course 1 majors and minors. 
+T. Cohen
+1.102 Introduction to Civil and Environmental Engineering Design II 
+______
+Undergrad (Spring) Partial Lab 
+Prereq: Physics II (GIR); or Coreq: 1.060B and permission of instructor 
+Units: 1-3-2 
+Lecture: T10 (1-050) Lab: R9-12 (1-050) 
+______ 
+Project-oriented subject focused on the principles and practice of engineering design. Emphasis on construction and deployment of designs, plus performance testing used to determine if designs behave as expected. Includes a major team project involving use and application of sensors, as well as environmentally-friendly, and energy-effective or energy-producing designs. Develops practical, teamwork and communication skills. Satisfies 6 units of Institute Laboratory credit. Enrollment limited; preference to Course 1 majors and minors. 
+A. Masic
+No textbook information available
+1.106 Environmental Fluid Transport Processes and Hydrology Laboratory 
+______
+Undergrad (Fall) Partial Lab 
+Prereq: None. Coreq: 1.061A, 1.070A 
+Units: 0-4-2 
+______ 
+Fundamentals of mass transport and flow measurements in the context of environmental systems. Topics include measurement uncertainty, propagation of error, diffusion, dispersion, air-water exchange, dissolution, gravity currents, particle transport, and transport in porous media. Includes formal lab reports. Satisfies 6 units of Institute Laboratory credit. Enrollment limited; preference to 1-ENG. 
+H. Nepf
+1.107 Environmental Chemistry and Biology Laboratory 
+______
+Undergrad (Spring) Partial Lab 
+Prereq: 1.018A or permission of instructor; Coreq: 1.080A 
+Units: 0-4-2 
+Lecture: W1 (48-308) Lab: W2-5 (48-109) 
+______ 
+Laboratory and field techniques in environmental engineering and its application to the understanding of natural and engineered ecosystems. Exercises involve data collection and analysis related to identifying and quantifying physical, chemical, and biological processes that govern the effects of human activity on the functioning of natural systems and/or the efficacy of engineered approaches to environmental problems. Laboratory activities cover all major domains of the environment: air, water, soils, and sediments. An independently designed final project is required. Satisfies 6 units of Institute Laboratory credit. Enrollment limited; preference to 1-ENG. 
+J. Kroll
+No textbook information available
+Engineering Information Systems and Computation
+1.124[J] Software and Computation for Simulation 
+______
+Graduate (Fall)
+Not offered regularly; consult department 
+(Same subject as 2.091[J]) 
+Prereq: 1.00 or permission of instructor 
+Units: 3-0-9 
+______ 
+Modern software development techniques and algorithms for engineering computation. Hands-on investigation of computational and software techniques for simulating engineering systems, such as sensor networks, traffic networks, and discrete simulation of materials using atomistic and particle methods. Covers data structures and algorithms for modeling, analysis, and visualization in the setting of multi-core and distributed computing. Treatment of basic topics, such as queuing, sorting and search algorithms, and more advanced numerical techniques based on state machines and distributed agents. Foundation for in-depth exploration of image processing, optimization, finite element and particle methods, computational materials, discrete element methods, and network methods. Knowledge of an object-oriented language required. 
+Staff
+1.125 Architecting & Engineering Software Systems 
+______
+Graduate (Fall) 
+Prereq: 1.00, 1.124J, or permission of instructor 
+Units: 3-0-9 
+______ 
+Software architecting and design of software-intensive systems. Targeted at future CTOs who must understand both the business and technical issues involved in architecting enterprise-scale systems. Student teams confront technically challenging problems. Lectures and readings cover core database, XML, web server components and browser issues in a distributed web service environment. Enrollment limited. 
+J. Williams
+1.126[J] Pattern Recognition and Analysis 
+______
+Graduate (Fall)
+Not offered regularly; consult department 
+(Same subject as MAS.622[J]) 
+Prereq: Permission of instructor 
+Units: 3-0-9 
+______ 
+Fundamentals of characterizing and recognizing patterns and features of interest in numerical data. Basic tools and theory for signal understanding problems with applications to user modeling, affect recognition, speech recognition and understanding, computer vision, physiological analysis, and more. Decision theory, statistical classification, maximum likelihood and Bayesian estimation, nonparametric methods, unsupervised learning and clustering. Additional topics on machine and human learning from active research. Knowledge of probability theory and linear algebra required. Limited to 20. 
+Staff
+1.128[J] Computational Geometry 
+______
+Graduate (Spring)
+Not offered regularly; consult department 
+(Same subject as 2.089[J]) 
+Prereq: Permission of instructor 
+Units: 3-0-9 
+______ 
+Topics in surface modeling: b-splines, non-uniform rational b-splines, physically based deformable surfaces, sweeps and generalized cylinders, offsets, blending and filleting surfaces. Non-linear solvers and intersection problems. Solid modeling: constructive solid geometry, boundary representation, non-manifold and mixed-dimension boundary representation models, octrees. Robustness of geometric computations. Interval methods. Finite and boundary element discretization methods for continuum mechanics problems. Scientific visualization. Variational geometry. Tolerances. Inspection methods. Feature representation and recognition. Shape interrogation for design, analysis, and manufacturing. Involves analytical and programming assignments. 
+Staff
+Engineering Analysis Methods
+1.138[J] Wave Propagation 
+______
+Not offered academic year 2017-2018Graduate (Spring) 
+(Same subject as 2.062[J], 18.376[J]) 
+Prereq: 2.003, 18.075 
+Units: 3-0-9 
+http://math.mit.edu/classes/18.376/ 
+______ 
+Theoretical concepts and analysis of wave problems in science and engineering with examples chosen from elasticity, acoustics, geophysics, hydrodynamics, blood flow, nondestructive evaluation, and other applications. Progressive waves, group velocity and dispersion, energy density and transport. Reflection, refraction and transmission of plane waves by an interface. Mode conversion in elastic waves. Rayleigh waves. Waves due to a moving load. Scattering by a two-dimensional obstacle. Reciprocity theorems. Parabolic approximation. Waves on the sea surface. Capillary-gravity waves. Wave resistance. Radiation of surface waves. Internal waves in stratified fluids. Waves in rotating media. Waves in random media.
+Staff
+See also 1.351, 1.541, 1.56J, 1.63, 1.691.
+
+Engineering Systems, Economics, and Optimization
+1.142[J] Robust Modeling, Optimization, and Computation 
+______
+Not offered academic year 2017-2018Graduate (Spring) 
+(Same subject as 15.094[J]) 
+Prereq: 18.06 or permission of instructor 
+Units: 4-0-8 
+______ 
+Introduces modern robust optimization, including theory, applications, and computation. Presents formulations and their connection to probability, information and risk theory for conic optimization (linear, second-order, and semidefinite cones) and integer optimization. Application domains include analysis and optimization of stochastic networks, optimal mechanism design, network information theory, transportation, pattern classification, structural and engineering design, and financial engineering. Students formulate and solve a problem aligned with their interests in a final project. 
+Staff
+1.146 Engineering Systems Analysis for Design 
+______
+Graduate (Fall) 
+Engineering School-Wide Elective Subject. 
+(Offered under: 1.146, 16.861, IDS.332) 
+Prereq: Permission of instructor 
+Units: 3-0-9 
+Credit cannot also be received for IDS.333 
+______ 
+Covers theory and methods to identify, value, and implement flexibility in design, also known as "real options." Topics include definition of uncertainties, simulation of performance for scenarios, screening models to identify desirable flexibility, decision and lattice analysis, and multidimensional economic evaluation. Students demonstrate proficiency through an extended application to a systems design of their choice. Provides a complement to research or thesis projects. Meets with IDS.333 first half of term. Enrollment limited. 
+R. De Neufville
