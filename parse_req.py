@@ -51,28 +51,19 @@ def parse_clause(clause):
             items.append(element)
         return ReqList(items, True) 
 
-fi = open("sample-reqs.txt")
+# parses a raw prereq string from a catalog entry assuming the syntax laid out
+# on the registrar's site
+# returns a (nested) ReqList data structure
+def parse_req_string(req_str):
+    # split into semicolon-delimted series
+    req_series = req_str.split(';')
 
+    # split each series in classes
+    req_classes = []
 
-reqs = []
+    for series in req_series:
+        req_classes.append(series.split(','))
+    result = parse_requisite(req_classes)
 
-for line in fi:
-    reqs.append(line[0:-2]) 
-    
-req_clauses = []
-for req in reqs:
-    req_clauses.append(req.split(';'))
-
-req_classes = []
-
-for clauses in req_clauses:
-    tmp = []
-    for clause in clauses:
-        tmp.append(clause.split(','))
-    req_classes.append(tmp)
-
-result = parse_requisite(req_classes[0])
-
-pdb.set_trace()
-
+    return result
         
