@@ -15,11 +15,17 @@ def parse_requisite(req):
     items = [] 
     for r in req:
         items.append(parse_clause(r))
-    return ReqList(items, True)
+
+    # if items is a single element list, just return the sole ReqList
+    # no need to wrap another one around
+    if len(items) == 1:
+        return items[0]
+    else:
+        return ReqList(items, True)
     
 
 # Takes a list of strings, which is the result of splitting a series on commas
-# returns the parsed result in the form of nested ReqLists
+# returns the parsed result in the form of a reqlists
 def parse_clause(clause):
     # assert correctness of input
     assert type(clause) == list
@@ -62,7 +68,8 @@ def parse_req_string(req_str):
     req_classes = []
 
     for series in req_series:
-        req_classes.append(series.split(','))
+        # trim whitespace from split result
+        req_classes.append([i.strip() for i in series.split(',')])
     result = parse_requisite(req_classes)
 
     return result

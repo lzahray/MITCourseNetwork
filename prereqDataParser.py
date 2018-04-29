@@ -1,3 +1,5 @@
+import pdb
+
 class Course():
     def __init__(self, name, preReqs,coReqs,undergrad):
         self.name = name #course name
@@ -49,6 +51,25 @@ def parsePrereqs(line):
     #TODO
     #this takes the prereq line of text and gets the prereqs into a form of ReqList(...)
     #returns prereqs, coreqs 
+
+    print("Raw line: " + line)
+    
+    # strip off "Prereq: "
+    reqString = line[8:]
+
+    prereqFile.write(reqString+"\n")
+
+    # Case 1: permission of instructor
+    if reqString == "Permission of instructor":
+        print("returning None.")
+        # return nothing for now
+        return [None, None]
+
+    print("Strip raw into reqString:", reqString)
+
+
+    
+    # we will handle this by cases
     return (ReqList(None, None), ReqList(None,None)) #REPLACE WITH REAL CODE 
 
 courseDict = {}
@@ -81,9 +102,11 @@ def createCourses(fileName, major):
                 print(line) #prereq line 
 
                 #parse prereq line
-                preReqs, coReqs = parsePrereqs(words)
+                preReqs, coReqs = parsePrereqs(line)
 
                 #add the course to the dictionary
                 courseDict[name] = Course(name, preReqs, coReqs, undergrad) #add course to dict
         i += 1
     return courseDict
+
+result = createCourses("dataTest.txt", "1")
