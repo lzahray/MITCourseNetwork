@@ -12,6 +12,22 @@ class ReqList():
         self.items = items #list of ReqLists and maybe strings
         self.isAnded = isAnded #true if logic of clause is AND, false if OR
 
+    # equality defined as same isAnded and items value
+    # item equality is checked recursively
+    def __eq__(self, other):
+        if self.isAnded != other.isAnded:
+            return False
+        items_equal =  True
+        # check that items are equal, recursively if there are nested ReqList's
+        for i, item in enumerate(self.items):
+            if other.items[i] != item:
+                return False
+
+        return True
+        
+
+prereqFile = open("reqs.txt", "w")
+
 #GIRs that are listed weirdly in Course Catalog
 calculusI = ReqList(["18.01","18.01A","18.014"],False)
 calculusII = ReqList(["18.02","18.02A","18.022","18.023","18.024"],False)
