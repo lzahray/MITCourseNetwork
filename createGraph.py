@@ -1,17 +1,21 @@
 from prereqDataParser import *
 from itertools import product
+import networkx as nx
+import matplotlib.pyplot as plt
 # import pdb 
 
 # pdb.__trace__
 def getAllPossibilities(parentReqs):
     #base case if parentReqs is a string
     #we never want to return anything other than a list of lists of strings. NO DEEPER
+    if parentReqs == None:
+        return []
     if type(parentReqs) == str:
         return [parentReqs] #maybe this should be a list?
     else:
         numItems = len(parentReqs.items)
         if parentReqs.isAnded:
-            print("And")
+            #print("And")
             #problem: we need to reduce one level of listiness  
             possibilities = []
             for i in range(numItems):
@@ -19,11 +23,11 @@ def getAllPossibilities(parentReqs):
                 possibilities.append(getAllPossibilities(parentReqs.items[i]))
             #possibilities is a list of (list of lists of strings)
             almostFinal = list(product(*possibilities))
-            print("almostFinal: ", almostFinal)
+            #print("almostFinal: ", almostFinal)
             #it's *almost* final, we just have one too many layers of parens inside. Really just need to delete them.
             final = []
             for i in range(len(almostFinal)):
-                print("len(almostFinal): ", len(almostFinal))
+                #print("len(almostFinal): ", len(almostFinal))
                 final.append([])
                 for j in range(len(almostFinal[i])):
 ##                    print("len(almostFinal[i] ", len(almostFinal[i]))
@@ -38,7 +42,7 @@ def getAllPossibilities(parentReqs):
                             final[i].append(almostFinal[i][j][k])
                     else:
                         final[i].append(almostFinal[i][j])
-            print("Final: ", final)
+            #print("Final: ", final)
             return final
         else:
             #for now same line as other case, if it stays can take it out of if/else
@@ -56,10 +60,71 @@ def getAllPossibilities(parentReqs):
 
 
 
+def createGraph(courseDict, outdegree):
+    #outdegree is True for outdegree graph, False for indegree graph
+    G = nx.DiGraph()
+    #nodes
+    for courseName in courseDict.keys():
+        course = courseDict[courseName]
+        G.add_node(course)
+    #edges
+    for courseName in courseDict.keys():
+        #print("courseName: ",courseName)
+        course = courseDict[courseName]
+        possibilities = getAllPossibilities(course.preReqs)
+        print(courseName, ": ", possibilities)
+        if outdegree:
+            currentScore = getOutdegreeDict(possibilities)
+        else:
+            currentScore = getIndegreeDict(possibilities)
+        for preReq in currentScore.keys():
+            G.add_edge(courseDict[preReq],course,weight=currentScore[preReq])
+    return G
 
+def getOutdegreeDict(possibilities):
+    currentScore = {}
+    for poss in possibilities:
+        for c in poss:
+            currentScore[c] = currentScore.get(c,0) + 1.0/(len(poss)*len(possibilities))
+    return currentScore
 
+def getIndegreeDict(possibilities):
+    currentScore = {}
+    for poss in possibilities:
+        for c in poss:
+            currentScore[c] = currentScore.get(c,0) + 1.0/(len(possibilities))
+    return currentScore
 
+#A B C D E F G H I J
+courseTest = {"A": Course("A",ReqList(["D","C"],True), None,True), 
+    "B": Course("B",ReqList([ReqList(["E",ReqList(["A","D"],True),"C"],False),"G"],True), None,True),
+    "C": Course("C", None, None,True),
+    "D": Course("D",ReqList(["H"],True), None,True),
+    "E": Course("E",ReqList(["G","F",ReqList(["H","I"],False)],True), None,True),
+    "F": Course("F",ReqList(["J","I","G"],False), None,True),
+    "G": Course("G", None, None,True),
+    "H": Course("H", "I", None,True),
+    "I": Course("I", None, None,True),
+    "J": Course("J", None, None,True)
+    
+    }
 
+#figure out edge weights
+#figure out directed 
+G = createGraph(courseTest,True)
+pos = nx.spring_layout(G)
+nx.draw_networkx_nodes(G,pos)
+nx.draw_networkx_edges(G,pos)
+labels = {}
+for idx, node in enumerate(G.nodes()):
+    labels[node] = node.name
+edge_labels = {}
+for idx, edge in enumerate(G.edges(data=True)):
+    #print("edge: ",edge)
+    edge_labels[(edge[0],edge[1])] = '{:0.3f}'.format(edge[2]['weight'])
+nx.draw_networkx_labels(G,pos,labels)
+nx.draw_networkx_edge_labels(G,pos,edge_labels,font_size=6)
+plt.show()
     # #base case is when the list is all strings:
     # numItems = len(parentReqs.items)
     # numString = 0
