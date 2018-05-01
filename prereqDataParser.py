@@ -26,16 +26,7 @@ class ReqList():
                 return False
 
         return True
-        
 
-prereqFile = open("reqs.txt", "w")
-
-#GIRs that are listed weirdly in Course Catalog
-calculusI = ReqList(["18.01","18.01A","18.014"],False)
-calculusII = ReqList(["18.02","18.02A","18.022","18.023","18.024"],False)
-physicsI = ReqList(["8.01","8.01L","8.011","8.012"],False)
-physicsII = ReqList(["8.02","8.022"],False) #INCOMPLETE
-permission = "permission"
 
 def representsCourse(s):
     #Idea is to check if a word represents a course number (to find correct line in catalog)
@@ -72,7 +63,6 @@ def parsePrereqs(line):
     # we will handle this by cases
     return (ReqList(None, None), ReqList(None,None)) #REPLACE WITH REAL CODE 
 
-courseDict = {}
 def createCourses(fileName, major):
     #fileName is .txt with copy-paste from catalog
     #NEED TO ADD [J] FUNCTIONALITY
@@ -108,5 +98,3 @@ def createCourses(fileName, major):
                 courseDict[name] = Course(name, preReqs, coReqs, undergrad) #add course to dict
         i += 1
     return courseDict
-
-result = createCourses("dataTest.txt", "1")
