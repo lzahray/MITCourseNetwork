@@ -23,6 +23,7 @@ class ReqList():
         # check that items are equal, recursively if there are nested ReqList's
         for i, item in enumerate(self.items):
             if other.items[i] != item:
+                pdb.set_trace()
                 return False
 
         return True

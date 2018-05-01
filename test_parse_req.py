@@ -23,8 +23,12 @@ class TestParseReq(unittest.TestCase):
         print(result)
         self.assertEqual(expected, parse_req_string(in_str))    
 
-         
+    def test_one_multi_or_one_singular_and(self):
+        in_str = "18.404, 18.200, or 6.046; 6.046"
 
+        expected = ReqList([ReqList(["18.404", "18.200", "6.046"], False), "6.046"], True)
+
+        self.assertEqual(expected, parse_req_string(in_str))
         
 
 

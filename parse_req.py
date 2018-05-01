@@ -1,6 +1,23 @@
 import pdb
 from prereqDataParser import ReqList
 
+# parses a raw prereq string from a catalog entry assuming the syntax laid out
+# on the registrar's site
+# returns a (nested) ReqList data structure
+def parse_req_string(req_str):
+    # split into semicolon-delimted series
+    req_series = req_str.split(';')
+
+    # split each series in classes
+    req_classes = []
+
+    for series in req_series:
+        # trim whitespace from split result
+        req_classes.append([i.strip() for i in series.split(',')])
+    result = parse_requisite(req_classes)
+
+    return result
+
 # 031 AST? TODO
 # Takes a list of lists of strings, each list representing a series that makes up the
 # prerequiste
@@ -44,6 +61,7 @@ def parse_clause(clause):
             last_clause_ands = []
             for i in last_clause.split('and'):
                 last_clause_ands.append(i)
+            assert len(last_clause_ands) > 1
             items.append(ReqList(last_clause_ands, True))
             return ReqList(items, False)
         # 1b. It is just a or A clause
@@ -57,22 +75,11 @@ def parse_clause(clause):
         items = []
         for element in clause:
             items.append(element)
-        return ReqList(items, True) 
 
-# parses a raw prereq string from a catalog entry assuming the syntax laid out
-# on the registrar's site
-# returns a (nested) ReqList data structure
-def parse_req_string(req_str):
-    # split into semicolon-delimted series
-    req_series = req_str.split(';')
+        # convention is not to return singleton ReqLists
+        if len(items) == 1:
+            return items[0]
+        else:
+            return ReqList(items, True) 
 
-    # split each series in classes
-    req_classes = []
-
-    for series in req_series:
-        # trim whitespace from split result
-        req_classes.append([i.strip() for i in series.split(',')])
-    result = parse_requisite(req_classes)
-
-    return result
         
