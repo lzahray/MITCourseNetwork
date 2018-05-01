@@ -27,6 +27,15 @@ class ReqList():
 
         return True
 
+    # return a human-readable string rep of the ReqList
+    def __str__(self):
+        return str(self.isAnded) + " " + str(self.items)
+
+    def __repr__(self):
+        return "ReqList("+repr(self.items)+", "+str(self.isAnded)+")"
+
+
+
 
 def representsCourse(s):
     #Idea is to check if a word represents a course number (to find correct line in catalog)

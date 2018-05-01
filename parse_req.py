@@ -33,7 +33,7 @@ def parse_clause(clause):
         assert type(c) == str
 
     # 1. check the last element for 'or'
-    if 'or' in clause[-1]:
+    if 'or' in clause[-1].strip():
         items = []
         for element in clause[:-1]:
             items.append(element)
@@ -48,7 +48,9 @@ def parse_clause(clause):
             return ReqList(items, False)
         # 1b. It is just a or A clause
         else:
-            items.append(clause[:-1])
+            # format is 'or class' - we want class
+            last_class = clause[-1].split(" ")[1]
+            items.append(last_class)
             return ReqList(items, False)
     # 2. The last element doesn't have or - all elements are anded
     else:
