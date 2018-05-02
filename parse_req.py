@@ -36,7 +36,11 @@ def parse_requisite(req):
     # if items is a single element list, just return the sole ReqList
     # no need to wrap another one around
     if len(items) == 1:
-        return items[0]
+        # check special case singleton "permission of instructor"
+        if "permission of instructor" in items[0]:
+            return "permission"
+        else:
+            return items[0]
     else:
         return ReqList(items, True)
     
@@ -44,6 +48,7 @@ def parse_requisite(req):
 # Takes a list of strings, which is the result of splitting a series on commas
 # returns the parsed result in the form of a reqlists
 def parse_clause(clause):
+
     # assert correctness of input
     assert type(clause) == list
     for c in clause:
@@ -66,10 +71,19 @@ def parse_clause(clause):
             return ReqList(items, False)
         # 1b. It is just a or A clause
         else:
-            # format is 'or class' - we want class
             last_class = clause[-1].split(" ")[1]
-            items.append(last_class)
-            return ReqList(items, False)
+            # if it is a "..., or permission of instructor"
+            if "permission of instructor" in last_class:
+                items.append("permission")
+            else:
+                # format is 'or class' - we want class
+                items.append(last_class)
+
+            # return singleton object if only one item
+            if len(items) == 1:
+                return items[0]
+            else:
+                return ReqList(items, False)
     # 2. The last element doesn't have or - all elements are anded
     else:
         items = []

@@ -42,10 +42,21 @@ class TestParseReq(unittest.TestCase):
         expected = ReqList(["18.404", "6.046", ReqList(["12.001", "12.002"], True)], False)
         result = parse_req_string(in_str)
 
+        self.assertEqual(expected, result)
+
+    def test_multi_and_with_permission_of_instructor(self):
+        in_str = "6.00, 18.03, 5.12; or permission of instructor"
+
+        expected = ReqList([ReqList(["6.00", "18.03", "5.12"], True), "permission"], False)
+
+        result = parse_req_string(in_str)
+
         pdb.set_trace()
-        
 
         self.assertEqual(expected, result)
+        
+        
+
 
 
         
