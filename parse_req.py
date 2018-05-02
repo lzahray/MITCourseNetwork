@@ -60,7 +60,7 @@ def parse_clause(clause):
             last_clause = clause[-1][3:]
             last_clause_ands = []
             for i in last_clause.split('and'):
-                last_clause_ands.append(i)
+                last_clause_ands.append(i.strip())
             assert len(last_clause_ands) > 1
             items.append(ReqList(last_clause_ands, True))
             return ReqList(items, False)

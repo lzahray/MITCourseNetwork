@@ -19,11 +19,9 @@ class ReqList():
     def __eq__(self, other):
         if self.isAnded != other.isAnded:
             return False
-        items_equal =  True
         # check that items are equal, recursively if there are nested ReqList's
         for i, item in enumerate(self.items):
             if other.items[i] != item:
-                pdb.set_trace()
                 return False
 
         return True

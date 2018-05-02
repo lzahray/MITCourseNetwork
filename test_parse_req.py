@@ -19,8 +19,6 @@ class TestParseReq(unittest.TestCase):
         result = parse_req_string(in_str)
         
     
-        print(expected)
-        print(result)
         self.assertEqual(expected, parse_req_string(in_str))    
 
     def test_one_multi_or_one_singular_and(self):
@@ -29,7 +27,25 @@ class TestParseReq(unittest.TestCase):
         expected = ReqList([ReqList(["18.404", "18.200", "6.046"], False), "6.046"], True)
 
         self.assertEqual(expected, parse_req_string(in_str))
+
+    def test_one_multi_and_one_multi_or(self):
+        in_str = "18.404, 18.200, 6.046; 6.046, or 12.001"
+
+        expected = ReqList([ReqList(["18.404", "18.200", "6.046"], True), ReqList(["6.046", "12.001"], False)], True)
+        result = parse_req_string(in_str)
+
+        self.assertEqual(expected, result)
+
+    def test_one_multi_or_with_nested_and(self):
+        in_str = "18.404, 6.046, or 12.001 and 12.002"
+
+        expected = ReqList(["18.404", "6.046", ReqList(["12.001", "12.002"], True)], False)
+        result = parse_req_string(in_str)
+
+        pdb.set_trace()
         
+
+        self.assertEqual(expected, result)
 
 
         
