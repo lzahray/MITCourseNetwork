@@ -51,9 +51,17 @@ class TestParseReq(unittest.TestCase):
 
         result = parse_req_string(in_str)
 
-        pdb.set_trace()
-
         self.assertEqual(expected, result)
+
+    def test_only_with_permission_of_instructor(self):
+        in_str = "permission of instructor"
+
+        expected = ReqList(["permission"], False)
+
+        result = parse_req_string(in_str)
+
+        self.assertEqual(expected.items, ["permission"])
+
         
         
 

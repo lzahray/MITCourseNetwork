@@ -5,6 +5,44 @@ from prereqDataParser import ReqList
 # on the registrar's site
 # returns a (nested) ReqList data structure
 def parse_req_string(req_str):
+
+    # note: prereq strings that contain 'with permission of instructor'
+    # are special cases handled at a high level
+    # our approach will be to detect these in the raw string, strip them out
+    # and or them with the result of parsing the rest of the string
+
+    # the main problem will be how to strip them out cleanly...
+    # based off of looking at prereq strings, I'm asuming that 
+    # the poi string always occurs at the end in the format
+    # 'or permission of instructor'
+    # 'or obtain permission of instructor'
+    
+    # first detect
+    poi_present = False
+
+    # handle two cases separetly
+    if "or permission of instructor" in req_str or "or obtain permission of instructor" in req_str:
+        # then cleanly strip out
+        # sanity check that the last or is close enough to the last permission
+        print("req_str: ", req_str)
+        print("last or: ", req_str.rfind(" or "))
+        print("last permission: ", req_str.rfind("permission"))
+        assert abs(req_str.rfind(" or ") - req_str.rfind("permission")) <= len("or obtain ")
+
+
+        req_str = req_str[:req_str.rfind(" or ")]
+        print("after strip: ",req_str)
+
+        poi_present = True
+    elif "permission of instructor" in req_str:
+        print("poi handled at high level")
+        req_str = req_str[:req_str.rfind("permission")]
+        poi_present = True
+
+
+
+
+
     # split into semicolon-delimted series
     req_series = req_str.split(';')
 
@@ -12,9 +50,15 @@ def parse_req_string(req_str):
     req_classes = []
 
     for series in req_series:
+        # skip if empty
+        if len(series) == 0:
+            continue
         # trim whitespace from split result
         req_classes.append([i.strip() for i in series.split(',')])
     result = parse_requisite(req_classes)
+
+    if poi_present:
+        result = ReqList([result, "permission"], False)
 
     return result
 
@@ -37,10 +81,10 @@ def parse_requisite(req):
     # no need to wrap another one around
     if len(items) == 1:
         # check special case singleton "permission of instructor"
-        if "permission of instructor" in items[0]:
-            return "permission"
-        else:
-            return items[0]
+        #if "permission of instructor" in items[0]:
+        #    return "permission"
+        #else:
+        return items[0]
     else:
         return ReqList(items, True)
     

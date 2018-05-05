@@ -20,6 +20,12 @@ class ReqList():
     # equality defined as same isAnded and items value
     # item equality is checked recursively
     def __eq__(self, other):
+        if other == None:
+            return False
+
+        if type(other) != ReqList:
+            return False
+    
         if self.isAnded != other.isAnded:
             return False
         # check that items are equal, recursively if there are nested ReqList's
