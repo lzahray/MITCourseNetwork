@@ -1,25 +1,35 @@
 import unittest
-from parse_req import parse_req_string 
+from parse_req import parse_req_string
 from prereqDataParser import ReqList
 import pdb
 
 class TestParseReq(unittest.TestCase):
-    
+
     def test_basic_and(self):
         in_str = "1.00, 1.01, 1.02"
 
         expected = ReqList(["1.00", "1.01", "1.02"], True)
-       
+
         self.assertEqual(expected, parse_req_string(in_str))
 
-    def test_basic_or(self):
+    def test_basic_or_with_oxford_comma(self):
         in_str = "1.00, 2.00C, or 6.006"
 
         expected = ReqList(["1.00", "2.00C", "6.006"], False)
         result = parse_req_string(in_str)
-        
-    
-        self.assertEqual(expected, parse_req_string(in_str))    
+
+
+        self.assertEqual(expected, parse_req_string(in_str))
+
+    def test_basic_or_without_oxford_comma(self):
+        in_str = "1.00, 2.00C or 6.006"
+
+        expected = ReqList(["1.00", "2.00C", "6.006"], False)
+        result = parse_req_string(in_str)
+
+
+        self.assertEqual(expected, parse_req_string(in_str))
+
 
     def test_one_multi_or_one_singular_and(self):
         in_str = "18.404, 18.200, or 6.046; 6.046"
@@ -60,13 +70,43 @@ class TestParseReq(unittest.TestCase):
 
         result = parse_req_string(in_str)
 
-        self.assertEqual(expected.items, ["permission"])
+        self.assertEqual(expected, result)
 
-        
-        
+    def test_binary_or_no_comma(self):
+        in_str = "12.001 or 12.002"
 
+        expected = ReqList(["12.001", "12.002"], False)
 
+        result = parse_req_string(in_str)
 
-        
+        self.assertEqual(expected, result)
+
+    def test_comma_clause_with_perm_and_with_binary_and(self):
+        in_str = "2.006, or 2.041 and 2.06, or permission of instructor"
+
+        expected = ReqList(["2.006", ReqList(["2.041", "2.06"], True), "permission"], False)
+
+        result = parse_req_string(in_str)
+
+        self.assertEqual(expected, result)
+
+    def test_2_clauses_one_singleton_one_implicit_and(self):
+        in_str = "2.005; or 2.051, 2.06"
+
+        expected = ReqList(["2.005", ReqList(["2.051", "2.06"], True)], False)
+
+        result = parse_req_string(in_str)
+
+        self.assertEqual(expected, result)
+
+    def test_2_clauses_binary_or_and_singleton_gir(self):
+        in_str = "18.03 or 18.032; GIR:PHY2"
+
+        expected = ReqList([ReqList(["18.03", "18.032"], False), "GIR:PHY2"], True)
+
+        result = parse_req_string(in_str)
+
+        self.assertEqual(expected, result)
+
 if __name__ == '__main__':
     unittest.main()
