@@ -3,6 +3,7 @@ from parse_req import parse_req_string
 from prereqDataParser import ReqList
 import pdb
 
+
 class TestParseReq(unittest.TestCase):
 
     def test_basic_and(self):
@@ -18,7 +19,6 @@ class TestParseReq(unittest.TestCase):
         expected = ReqList(["1.00", "2.00C", "6.006"], False)
         result = parse_req_string(in_str)
 
-
         self.assertEqual(expected, parse_req_string(in_str))
 
     def test_basic_or_without_oxford_comma(self):
@@ -27,9 +27,7 @@ class TestParseReq(unittest.TestCase):
         expected = ReqList(["1.00", "2.00C", "6.006"], False)
         result = parse_req_string(in_str)
 
-
         self.assertEqual(expected, parse_req_string(in_str))
-
 
     def test_one_multi_or_one_singular_and(self):
         in_str = "18.404, 18.200, or 6.046; 6.046"
@@ -41,7 +39,8 @@ class TestParseReq(unittest.TestCase):
     def test_one_multi_and_one_multi_or(self):
         in_str = "18.404, 18.200, 6.046; 6.046, or 12.001"
 
-        expected = ReqList([ReqList(["18.404", "18.200", "6.046"], True), ReqList(["6.046", "12.001"], False)], True)
+        expected = ReqList([ReqList(["18.404", "18.200", "6.046"], True),
+                            ReqList(["6.046", "12.001"], False)], True)
         result = parse_req_string(in_str)
 
         self.assertEqual(expected, result)
@@ -107,6 +106,26 @@ class TestParseReq(unittest.TestCase):
         result = parse_req_string(in_str)
 
         self.assertEqual(expected, result)
+
+    def test_single_coreq(self):
+        in_str = "[18.03]"
+
+        expected = ReqList(["18.03"], True)
+
+        result = parse_req_string(in_str)
+
+        self.assertEqual(expected, result)
+
+    def test_complex_coreq(self):
+        in_str = "2.003; [2.005, 2.05 and 2.051, or 2.016; 2.671]"
+
+        expected = ReqList(["2.003", ReqList(
+            [ReqList(["2.005", ReqList(["2.05", "2.051"], True), "2.016"], False), "2.671"], True)], True)
+
+        result = parse_req_string(in_str)
+
+        self.assertEqual(expected, result)
+
 
 if __name__ == '__main__':
     unittest.main()
