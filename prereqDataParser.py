@@ -9,6 +9,14 @@ class Course():
         self.undergrad = undergrad #true if Undergrad, false if grad
         self.course = name.split(".")[0] #for automatically getting course number
 
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return "Course("+self.name+","+str(self.preReqs)+","+(self.coReqs if self.coReqs != None else "None")+","+str(self.undergrad)+","+self.course+")"
+
+
+
 #example:
 #x or (y and z) is ReqList([x, ReqList([y,z)],True)], False)
 
@@ -38,7 +46,7 @@ class ReqList():
 
     # return a human-readable string rep of the ReqList
     def __str__(self):
-        return str(self.isAnded) + " " + str(self.items)
+        return "{"+str(self.isAnded) + " " + str(self.items)+"}"
 
     def __repr__(self):
         return "ReqList("+repr(self.items)+", "+str(self.isAnded)+")"
