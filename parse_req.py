@@ -4,6 +4,8 @@ from prereqDataParser import ReqList
 # parses a raw prereq string from a catalog entry assuming the syntax laid out
 # on the registrar's site
 # returns a (nested) ReqList data structure
+specialStrings = {"GIR:PHY2":ReqList(["8.02","8.021","8.022"],False)}
+
 def parse_req_string(req_str):
     #NEW CODE HERE
     #split by semicolon first and formost
