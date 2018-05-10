@@ -42,6 +42,39 @@ class ReqList():
     def __repr__(self):
         return "ReqList("+repr(self.items)+", "+str(self.isAnded)+")"
 
+    @staticmethod
+    # takes a reqList and flattens nested ReqLists of the same isAnded value
+    # also turns singleton reqlists (where only item is a string) into pure strings
+    def flatten(reqList):
+
+        # if not given a ReqList, just return it straightaway
+        if type(reqList) != ReqList:
+            return reqList
+
+        isAnded = reqList.isAnded
+        
+        newItems = []
+
+
+        for item in reqList.items:
+            if type(item) is ReqList and item.isAnded == reqList.isAnded:
+                newItems = newItems + item.items
+            else:
+                newItems.append(item)
+
+        if len(newItems) == 1 and type(newItems[0]) == str:
+            return newItems[0]
+
+
+
+        return ReqList(newItems, isAnded)
+
+
+
+
+        
+
+        
 
 
 
