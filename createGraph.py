@@ -78,6 +78,8 @@ def createGraph(courseDict, outdegree):
         else:
             currentScore = getIndegreeDict(possibilities)
         for preReq in currentScore.keys():
+            if preReq not in courseDict:
+                courseDict[preReq] = Course(preReq,None,True)
             G.add_edge(courseDict[preReq],course,weight=currentScore[preReq])
     return G
 
