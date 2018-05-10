@@ -5,49 +5,49 @@ from prereqDataParser import ReqList
 # on the registrar's site
 # returns a (nested) ReqList data structure
 def parse_req_string(req_str):
-
-    # note: prereq strings that contain 'with permission of instructor'
-    # are special cases handled at a high level
-    # our approach will be to detect these in the raw string, strip them out
-    # and or them with the result of parsing the rest of the string
-
-    # the main problem will be how to strip them out cleanly...
-    # based off of looking at prereq strings, I'm asuming that 
-    # the poi string always occurs at the end in the format
-    # 'or permission of instructor'
-    # 'or obtain permission of instructor'
-    
-    # first detect
-
     #NEW CODE HERE
     #split by semicolon first and formost
+
+    #permission base case
     req_str = req_str.upper()
+    req_str = req_str.replace("PERMISSION OF INSTRUCTOR", "PERMISSION")
     clauses = req_str.split(';')
     yesAndListSemi = [] #not including permission
     permissionAnd = False
     permissionOr = False
+    
+
+    
     #figure out logic of these clauses
     #this part might be problematic for weird cases where it's like A;and B; or C but like... eww what even is that
-    for clause in clauses:
-        clause = clause.strip(' ')
+    for i in range(len(clauses)):
+        
+        clauses[i] = clauses[i].strip(" ")
+        clause = clauses[i]
+        print("we're going through at least one clause and it's ", clause)
+        #print("looking at clause: ", clause)
         words = clause.split(" ")
         if words[0] == "AND" or words[0] == "OR":
             yesAnd = words[0] == "AND"
-            if clause.find("PERMISSION"):
+            if clause.find("PERMISSION") >= 0:
+                print("we found permission in loop")
                 permissionAnd = yesAnd
                 permissionOr = not yesAnd
             else:
-                for i in range(len(yesAndListSemi)):
-                    yesAndListSemi[i] = yesAnd
+                for j in range(len(yesAndListSemi)):
+                    yesAndListSemi[j] = yesAnd
                     yesAndListSemi.append(yesAnd)
             #now we've taken care of it, no longer need the and/or at beginning
-            clause = clause.strip("AND ").stip("OR ")
+            clauses[i] = clause.strip("AND ").strip("OR ")
+            #print("clauses currently in loop: ", clauses)
         else:
             #default is and if not specified, may be overwritten later 
             yesAndListSemi.append(True)
     #first off let's delete the permission clause
     if permissionAnd or permissionOr:
+        print("permission is a thing")
         clauses.pop()
+    print("now clauses are: ", clauses)
     #now we can separate by comma
     #yes we do need a new loop sorry y'all
     finalItems = []
@@ -63,19 +63,20 @@ def parse_req_string(req_str):
         yesAndComma = True
         for j in range(len(subclauses)):
             subclause = subclauses[j].strip(' ')
+            #print("subclause is ", subclause)
             words = subclause.split(' ')
             if j == len(subclauses)-1: #if it's the last clause there might be some AND/OR logics going on
-                if subclause.find("AND") >=0:
-                       yesAndComma = True
-                       if words[0] == "AND":
-                           words.pop(0)
-                           subclause = subclause[3:]
-                elif subclause.find("OR") >=0:
-                       yesAndComma = False
-                       if words[0] == "OR":
-                           words.pop(0)
-                           subclause = subclause[3:]                                              
-                    
+                if words[0] == "AND":
+                   yesAndComma = True
+                   words.pop(0)
+                   subclause = subclause[4:]
+                elif words[0] == "OR":                       
+                   yesAndComma = False
+                   words.pop(0)
+                   print("found an or and words are ", words)
+                   subclause = subclause[3:]                                              
+            #print("subclause is ", subclause)
+            #print("words are ", words)
             if len(words) == 1: #one class
                 items.append(words[0])
             elif len(words) == 3:
@@ -98,14 +99,22 @@ def parse_req_string(req_str):
             finalItems.append(ReqList(items,yesAndComma))
 
     if len(finalItems) == 1:
-        return finalItems[0]
+        if permissionOr:
+            return ReqList([finalItems[0],"PERMISSION"],False)
+        elif permissionAnd:
+            return ReqList([finalItems[0],"PERMISSION"],True)
+        else:
+            return finalItems[0]
     elif len(finalItems) == 0:
-        return None
+        if permissionOr or permissionAnd:
+            return "PERMISSION"
+        else:
+            return None
     else:
         if permissionOr:
-            return ReqList([ReqList(finalItems,yesAndListSemi[0]),"permission"],False)
+            return ReqList([ReqList(finalItems,yesAndListSemi[0]),"PERMISSION"],False)
         elif permissionAnd:
-            return ReqList([ReqList(finalItems,yesAndListSemi[0]),"permission"],True)
+            return ReqList([ReqList(finalItems,yesAndListSemi[0]),"PERMISSION"],True)
         else:
             return ReqList(finalItems,yesAndListSemi[0])
         

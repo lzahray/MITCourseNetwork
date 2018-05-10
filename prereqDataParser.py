@@ -31,6 +31,7 @@ class ReqList():
         # check that items are equal, recursively if there are nested ReqList's
         for i, item in enumerate(self.items):
             if other.items[i] != item:
+                print("gonna be false because item is ", item, " and other is ", other.items[i])
                 return False
 
         return True
