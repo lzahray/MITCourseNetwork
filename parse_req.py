@@ -11,6 +11,7 @@ def parse_req_string(req_str):
     #permission base case
     req_str = req_str.upper()
     req_str = req_str.replace("PERMISSION OF INSTRUCTOR", "PERMISSION")
+    req_str = req_str.replace('[','').replace(']','')
     clauses = req_str.split(';')
     yesAndListSemi = [] #not including permission
     permissionAnd = False
@@ -74,9 +75,22 @@ def parse_req_string(req_str):
                    yesAndComma = False
                    words.pop(0)
                    print("found an or and words are ", words)
-                   subclause = subclause[3:]                                              
+                   subclause = subclause[3:]
+                elif subclause.find("AND") >= 0:
+                    yesAndComma = True
+                elif subclause.find("OR") >= 0:
+                    yesAndComma = False
+            elif words[0] == "AND":
+                yesAndComma = True
+                words.pop(0)
+                subclause = subclause[4:]
+            elif words[0] == "OR":
+                yesAndComma = False
+                words.pop(0)
+                subclause = subclause[3:]
             #print("subclause is ", subclause)
             #print("words are ", words)
+            
             if len(words) == 1: #one class
                 items.append(words[0])
             elif len(words) == 3:
@@ -201,53 +215,53 @@ def parse_requisite(req):
 
 # Takes a list of strings, which is the result of splitting a series on commas
 # returns the parsed result in the form of a reqlists
-def parse_clause(clause):
-
-    # assert correctness of input
-    assert type(clause) == list
-    for c in clause:
-        assert type(c) == str
-
-    # 1. check the last element for 'or'
-    if 'or' in clause[-1].strip():
-        items = []
-        for element in clause[:-1]:
-            items.append(element)
-        #1a. Check if it is a 'or A and B' clause
-        if 'and' in clause[-1]:
-            # add the last 'or A and B' clause
-            last_clause = clause[-1][3:]
-            last_clause_ands = []
-            for i in last_clause.split('and'):
-                last_clause_ands.append(i.strip())
-            assert len(last_clause_ands) > 1
-            items.append(ReqList(last_clause_ands, True))
-            return ReqList(items, False)
-        # 1b. It is just a or A clause
-        else:
-            last_class = clause[-1].split(" ")[1]
-            # if it is a "..., or permission of instructor"
-            if "permission of instructor" in last_class:
-                items.append("permission")
-            else:
-                # format is 'or class' - we want class
-                items.append(last_class)
-
-            # return singleton object if only one item
-            if len(items) == 1:
-                return items[0]
-            else:
-                return ReqList(items, False)
-    # 2. The last element doesn't have or - all elements are anded
-    else:
-        items = []
-        for element in clause:
-            items.append(element)
-
-        # convention is not to return singleton ReqLists
-        if len(items) == 1:
-            return items[0]
-        else:
-            return ReqList(items, True) 
+##def parse_clause(clause):
+##
+##    # assert correctness of input
+##    assert type(clause) == list
+##    for c in clause:
+##        assert type(c) == str
+##
+##    # 1. check the last element for 'or'
+##    if 'or' in clause[-1].strip():
+##        items = []
+##        for element in clause[:-1]:
+##            items.append(element)
+##        #1a. Check if it is a 'or A and B' clause
+##        if 'and' in clause[-1]:
+##            # add the last 'or A and B' clause
+##            last_clause = clause[-1][3:]
+##            last_clause_ands = []
+##            for i in last_clause.split('and'):
+##                last_clause_ands.append(i.strip())
+##            assert len(last_clause_ands) > 1
+##            items.append(ReqList(last_clause_ands, True))
+##            return ReqList(items, False)
+##        # 1b. It is just a or A clause
+##        else:
+##            last_class = clause[-1].split(" ")[1]
+##            # if it is a "..., or permission of instructor"
+##            if "permission of instructor" in last_class:
+##                items.append("permission")
+##            else:
+##                # format is 'or class' - we want class
+##                items.append(last_class)
+##
+##            # return singleton object if only one item
+##            if len(items) == 1:
+##                return items[0]
+##            else:
+##                return ReqList(items, False)
+##    # 2. The last element doesn't have or - all elements are anded
+##    else:
+##        items = []
+##        for element in clause:
+##            items.append(element)
+##
+##        # convention is not to return singleton ReqLists
+##        if len(items) == 1:
+##            return items[0]
+##        else:
+##            return ReqList(items, True) 
 
         
