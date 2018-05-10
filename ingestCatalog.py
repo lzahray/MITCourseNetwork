@@ -11,6 +11,8 @@ def ingest_catalog():
         for row in reader:
             courses.append(Course(row[2], parse_req_string(row[5]), None, row[4] == 'U'))
 
+    return courses
+
 if __name__ == '__main__':
     course = ingest_catalog()
     for c in courses:

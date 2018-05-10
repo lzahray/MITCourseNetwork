@@ -58,6 +58,16 @@ def getAllPossibilities(parentReqs):
                     final.append(possibilities[i][j])
             return final
 
+def create_course_dict(courseList):
+    course_dict = {}
+    
+    for course in courseList:
+        if course.name not in course_dict:
+            course_dict[course.name] = course
+        else:
+            print("found duplicate course for: ", course.name)
+
+    return course_dict
 
 
 def createGraph(courseDict, outdegree):
@@ -79,8 +89,11 @@ def createGraph(courseDict, outdegree):
             currentScore = getIndegreeDict(possibilities)
         for preReq in currentScore.keys():
             if preReq not in courseDict:
-                courseDict[preReq] = Course(preReq,None,True)
-            G.add_edge(courseDict[preReq],course,weight=currentScore[preReq])
+                courseOfPreReq = Course(preReq, None, None, True)
+            else:
+                courseOfPreReq = courseDict[preReq]
+            
+            G.add_edge(courseOfPreReq,course,weight=currentScore[preReq])
     return G
 
 def getOutdegreeDict(possibilities):
@@ -111,9 +124,18 @@ courseTest = {"A": Course("A",ReqList(["D","C"],True), None,True),
     
     }
 
+# catalog test
+from ingestCatalog import ingest_catalog
+import pdb
+pdb.set_trace()
+courseList = ingest_catalog()
+courseDict = create_course_dict(courseList)
+G = createGraph(courseDict, True)
+
+pdb.set_trace()
 #figure out edge weights
 #figure out directed 
-G = createGraph(courseTest,True)
+#G = createGraph(courseTest,True)
 pos = nx.spring_layout(G)
 nx.draw_networkx_nodes(G,pos)
 nx.draw_networkx_edges(G,pos)
@@ -126,6 +148,10 @@ for idx, edge in enumerate(G.edges(data=True)):
     edge_labels[(edge[0],edge[1])] = '{:0.3f}'.format(edge[2]['weight'])
 nx.draw_networkx_labels(G,pos,labels)
 nx.draw_networkx_edge_labels(G,pos,edge_labels,font_size=6)
+
+# save to graphml file
+nx.write_graphml(G, "thisbetterwork.graphml")
+
 plt.show()
     # #base case is when the list is all strings:
     # numItems = len(parentReqs.items)
