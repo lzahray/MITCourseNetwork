@@ -107,18 +107,27 @@ def createGraph(courseDict, outdegree):
     return G
 
 def getOutdegreeDict(possibilities):
+    #print("possibilities: ", possibilities)
     currentScore = {}
+    numTimesAppeared = {}
     for poss in possibilities:
         for c in poss:
-            currentScore[c] = currentScore.get(c,0) + 1.0/(len(poss)*len(possibilities))           
+            currentScore[c] = currentScore.get(c,0) + 1.0/(len(poss))
+            numTimesAppeared[c] = numTimesAppeared.get(c,0) + 1
+    for c in currentScore:
+        #print(c, " appeared ", numTimesAppeared[c], " times")
+        currentScore[c] = currentScore[c] / numTimesAppeared[c]
+    #print("score dict: ", currentScore)
     return currentScore
 
 def getIndegreeDict(possibilities):
+    #print("possibilities: ", possibilities)
     currentScore = {}
     for poss in possibilities:
         for c in poss:
             currentScore[c] = currentScore.get(c,0) + 1.0/(len(possibilities))
     #print("scoreDict is: ",currentScore)
+    #print("score dict: ", currentScore)
     return currentScore
 
 #A B C D E F G H I J
@@ -142,6 +151,7 @@ import pdb
 courseList = ingest_catalog()
 courseDict = create_course_dict(courseList)
 G = createGraph(courseDict, False)
+#G = createGraph(courseTest, False)
 print("created")
 #pdb.set_trace()
 #figure out edge weights
@@ -161,8 +171,8 @@ print("created")
 ##nx.draw_networkx_edge_labels(G,pos,edge_labels,font_size=6)
 
 # save to graphml file
-nx.write_graphml(G, "indegree.graphml")
-print("Done")
+#nx.write_graphml(G, "indegree.graphml")
+#print("Done")
 
 #plt.show()
     # #base case is when the list is all strings:
