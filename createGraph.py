@@ -11,7 +11,7 @@ def getAllPossibilities(parentReqs):
     if parentReqs == None:
         return []
     if type(parentReqs) == str:
-        return [parentReqs] #maybe this should be a list?
+        return [[parentReqs]] #maybe this should be a list?
     else:
         numItems = len(parentReqs.items)
         if parentReqs.isAnded:
@@ -49,13 +49,17 @@ def getAllPossibilities(parentReqs):
             possibilities = []
             for i in range(numItems):
                 possibilities.append(getAllPossibilities(parentReqs.items[i]))
+            #print("possibilities:", possibilities)
             #final really is just one of the things that ends up in possibilities
             #possibilities is a list of (list of lists of strings)
             #we really just want one of the lists of strings as each element in final
             final = []
             for i in range(len(possibilities)):
                 for j in range(len(possibilities[i])):
-                    final.append(possibilities[i][j])
+                    if type(possibilities[i][j]) == str:
+                        final.append([possibilities[i][j]])
+                    else:
+                        final.append(possibilities[i][j])
             return final
 
 def create_course_dict(courseList):
@@ -65,7 +69,8 @@ def create_course_dict(courseList):
         if course.name not in course_dict:
             course_dict[course.name] = course
         else:
-            print("found duplicate course for: ", course.name)
+            pass
+            #print("found duplicate course for: ", course.name)
 
     return course_dict
 
@@ -81,26 +86,31 @@ def createGraph(courseDict, outdegree):
     for courseName in courseDict.keys():
         #print("courseName: ",courseName)
         course = courseDict[courseName]
+        #print("prereqs: ", course.preReqs)
         possibilities = getAllPossibilities(course.preReqs)
-        print(courseName, ": ", possibilities)
+        #print(courseName, ": ", possibilities)
         if outdegree:
             currentScore = getOutdegreeDict(possibilities)
         else:
             currentScore = getIndegreeDict(possibilities)
+        #print("score: ", currentScore)
+        myFunSum = 0
         for preReq in currentScore.keys():
             if preReq not in courseDict:
                 courseOfPreReq = Course(preReq, None, None, True)
             else:
                 courseOfPreReq = courseDict[preReq]
+            myFunSum += currentScore[preReq]
             
             G.add_edge(courseOfPreReq,course,weight=currentScore[preReq])
+        #print("SUM: ",myFunSum)
     return G
 
 def getOutdegreeDict(possibilities):
     currentScore = {}
     for poss in possibilities:
         for c in poss:
-            currentScore[c] = currentScore.get(c,0) + 1.0/(len(poss)*len(possibilities))
+            currentScore[c] = currentScore.get(c,0) + 1.0/(len(poss)*len(possibilities))           
     return currentScore
 
 def getIndegreeDict(possibilities):
@@ -108,6 +118,7 @@ def getIndegreeDict(possibilities):
     for poss in possibilities:
         for c in poss:
             currentScore[c] = currentScore.get(c,0) + 1.0/(len(possibilities))
+    #print("scoreDict is: ",currentScore)
     return currentScore
 
 #A B C D E F G H I J
@@ -127,32 +138,33 @@ courseTest = {"A": Course("A",ReqList(["D","C"],True), None,True),
 # catalog test
 from ingestCatalog import ingest_catalog
 import pdb
-pdb.set_trace()
+#pdb.set_trace()
 courseList = ingest_catalog()
 courseDict = create_course_dict(courseList)
-G = createGraph(courseDict, True)
-
-pdb.set_trace()
+G = createGraph(courseDict, False)
+print("created")
+#pdb.set_trace()
 #figure out edge weights
 #figure out directed 
 #G = createGraph(courseTest,True)
-pos = nx.spring_layout(G)
-nx.draw_networkx_nodes(G,pos)
-nx.draw_networkx_edges(G,pos)
-labels = {}
-for idx, node in enumerate(G.nodes()):
-    labels[node] = node.name
-edge_labels = {}
-for idx, edge in enumerate(G.edges(data=True)):
-    #print("edge: ",edge)
-    edge_labels[(edge[0],edge[1])] = '{:0.3f}'.format(edge[2]['weight'])
-nx.draw_networkx_labels(G,pos,labels)
-nx.draw_networkx_edge_labels(G,pos,edge_labels,font_size=6)
+##pos = nx.spring_layout(G)
+##nx.draw_networkx_nodes(G,pos)
+##nx.draw_networkx_edges(G,pos)
+##labels = {}
+##for idx, node in enumerate(G.nodes()):
+##    labels[node] = node.name
+##edge_labels = {}
+##for idx, edge in enumerate(G.edges(data=True)):
+##    #print("edge: ",edge)
+##    edge_labels[(edge[0],edge[1])] = '{:0.3f}'.format(edge[2]['weight'])
+##nx.draw_networkx_labels(G,pos,labels)
+##nx.draw_networkx_edge_labels(G,pos,edge_labels,font_size=6)
 
 # save to graphml file
-nx.write_graphml(G, "thisbetterwork.graphml")
+nx.write_graphml(G, "indegree.graphml")
+print("Done")
 
-plt.show()
+#plt.show()
     # #base case is when the list is all strings:
     # numItems = len(parentReqs.items)
     # numString = 0

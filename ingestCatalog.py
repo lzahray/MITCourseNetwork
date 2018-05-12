@@ -7,8 +7,8 @@ def ingest_catalog():
 
     courses = []
     with open('catalog.csv', 'rt') as csvfile: 
-        reader = csv.reader(csvfile, delimiter=",")
-        for row in reader:
+        reader = list(csv.reader(csvfile, delimiter=","))
+        for row in reader[1:]:
             courses.append(Course(row[2], parse_req_string(row[5]), None, row[4] == 'U'))
 
     return courses
