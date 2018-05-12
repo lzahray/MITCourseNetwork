@@ -76,7 +76,7 @@ def createGraph(courseDict, outdegree):
     #nodes
     for courseName in courseDict.keys():
         course = courseDict[courseName]
-        G.add_node(course)
+        G.add_node(course.name, course = course.course, undergrad=course.undergrad)
     #edges
     for courseName in courseDict.keys():
         #print("courseName: ",courseName)
@@ -127,7 +127,6 @@ courseTest = {"A": Course("A",ReqList(["D","C"],True), None,True),
 # catalog test
 from ingestCatalog import ingest_catalog
 import pdb
-pdb.set_trace()
 courseList = ingest_catalog()
 courseDict = create_course_dict(courseList)
 G = createGraph(courseDict, True)
