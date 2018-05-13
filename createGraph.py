@@ -74,7 +74,7 @@ def createGraph(courseDict, outdegree, subjectToMaster):
     #nodes
     for courseName in courseDict.keys():
         course = courseDict[courseName]
-        G.add_node(course)
+        G.add_node(course.name, course = course.course, undergrad=course.undergrad)
     #edges
     for courseName in courseDict.keys():
         #print("courseName: ",courseName)
@@ -151,10 +151,12 @@ courseTest = {"A": Course("A",ReqList(["D","C"],True), None,True),
 # catalog test
 from ingestCatalog import ingest_catalog
 import pdb
+
 #pdb.set_trace()
 outDegree = True
 courseList, subjectToMaster = ingest_catalog()
 print("ingested")
+
 courseDict = create_course_dict(courseList)
 G = createGraph(courseDict, outDegree, subjectToMaster)
 ##subToMas = {}
