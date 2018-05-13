@@ -11,7 +11,7 @@ def getAllPossibilities(parentReqs):
     if parentReqs == None:
         return []
     if type(parentReqs) == str:
-        return [[parentReqs]] #maybe this should be a list?
+        return [[parentReqs]] 
     else:
         numItems = len(parentReqs.items)
         if parentReqs.isAnded:
@@ -30,13 +30,6 @@ def getAllPossibilities(parentReqs):
                 #print("len(almostFinal): ", len(almostFinal))
                 final.append([])
                 for j in range(len(almostFinal[i])):
-##                    print("len(almostFinal[i] ", len(almostFinal[i]))
-##                    print("i is ", i)
-##                    print("j is ", j)
-##                    print("almostFinal is ", almostFinal)
-##                    print("almostFinal[i] is", almostFinal[i])
-                    #this is the deepness we want to be at
-##                    print("almostFinal[i][j] is ", almostFinal[i][j])
                     if type(almostFinal[i][j]) != str:
                         for k in range(len(almostFinal[i][j])):
                             final[i].append(almostFinal[i][j][k])
@@ -71,11 +64,11 @@ def create_course_dict(courseList):
         else:
             pass
             #print("found duplicate course for: ", course.name)
-
+    course_dict["PERMISSION"] = Course("PERMISSION",None,None,True)
     return course_dict
 
 
-def createGraph(courseDict, outdegree):
+def createGraph(courseDict, outdegree, subjectToMaster):
     #outdegree is True for outdegree graph, False for indegree graph
     G = nx.DiGraph()
     #nodes
@@ -96,10 +89,19 @@ def createGraph(courseDict, outdegree):
         #print("score: ", currentScore)
         myFunSum = 0
         for preReq in currentScore.keys():
-            if preReq not in courseDict:
+            actualName = subjectToMaster.get(preReq,None)
+            if not actualName:
+                print("we had to create a new thing for ",preReq)
+                print("while we're looking at the course ", courseName)
                 courseOfPreReq = Course(preReq, None, None, True)
+                courseDict[preReq] = courseOfPreReq
             else:
-                courseOfPreReq = courseDict[preReq]
+                if actualName in courseDict:
+                    courseOfPreReq = courseDict[actualName]
+                else:
+                    courseOfPreReq = Course(preReq,None,None,True)
+                    courseDict[preReq] = courseOfPreReq
+                    print("weird case of creating new thing for ",prereq, " with actual name ", actualName)
             myFunSum += currentScore[preReq]
             
             G.add_edge(courseOfPreReq,course,weight=currentScore[preReq])
@@ -144,15 +146,45 @@ courseTest = {"A": Course("A",ReqList(["D","C"],True), None,True),
     
     }
 
+
+
 # catalog test
 from ingestCatalog import ingest_catalog
 import pdb
 #pdb.set_trace()
-courseList = ingest_catalog()
+outDegree = True
+courseList, subjectToMaster = ingest_catalog()
+print("ingested")
 courseDict = create_course_dict(courseList)
-G = createGraph(courseDict, False)
+G = createGraph(courseDict, outDegree, subjectToMaster)
+##subToMas = {}
+##for key in courseTest:
+##    subToMas[key] = key
+#G = createGraph(courseTest, outDegree, subToMas)
+#G.add_node(courseTest["A"],happyThing = True)
+#print("G's nodes are ", list(G.nodes))
+top = list(nx.topological_sort(G))
+if not outDegree:
+    for node in top:
+        node.set_runningInTotal(G)
+else:
+    top = list(reversed(top))
+    for node in top:
+        node.set_runningOutTotal(G)
+
+#now need to set the attribute
+if not outDegree:
+    for node in top:
+        G.add_node(node, runningInTotal=node.runningInTotal)
+else:
+    for node in top:
+        G.add_node(node, runningOutTotal = node.runningOutTotal)
+nx.write_graphml(G, "outdegree.graphml")
 #G = createGraph(courseTest, False)
 print("created")
+
+
+
 #pdb.set_trace()
 #figure out edge weights
 #figure out directed 
@@ -171,7 +203,7 @@ print("created")
 ##nx.draw_networkx_edge_labels(G,pos,edge_labels,font_size=6)
 
 # save to graphml file
-#nx.write_graphml(G, "indegree.graphml")
+
 #print("Done")
 
 #plt.show()
@@ -192,13 +224,3 @@ print("created")
     #       return possibilities
     # else:
     #   #let's think about the case where we have 2 strings and 1 reqList
-
-
-
-
-        
-
-
-#if i were doing it by hand, I'd look at the smallest guy first, at some point somebody has
-#to be just made up of strings. Then if it's and, we return a list of all those. 
-#if it's or, we return several lists of the individuals. 
