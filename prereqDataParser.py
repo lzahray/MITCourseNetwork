@@ -37,13 +37,15 @@ class Course():
             
     def set_runningOutTotal(self,G):
         #G is the graph
-        #do not call this function out of top sort order 
-        inTotal = 0
+        #do not call this function out of top sort order
+        #print("my name: ", self.name)
+        outTotal = 0
         for edge in list(G.out_edges(self)):
             weight = G.get_edge_data(*edge)["weight"]
             dest = edge[1]
-            inTotal += weight*(1+dest.runningInTotal)
-        self.runningInTotal = inTotal 
+            #print("dest: ", dest.name)
+            outTotal += weight*(1+dest.runningOutTotal)
+        self.runningOutTotal = outTotal 
 
 
 #example:

@@ -74,7 +74,7 @@ def createGraph(courseDict, outdegree, subjectToMaster):
     #nodes
     for courseName in courseDict.keys():
         course = courseDict[courseName]
-        G.add_node(course.name, course = course.course, undergrad=course.undergrad)
+        G.add_node(course, course = course.course, undergrad=course.undergrad)
     #edges
     for courseName in courseDict.keys():
         #print("courseName: ",courseName)
@@ -166,12 +166,14 @@ G = createGraph(courseDict, outDegree, subjectToMaster)
 #G.add_node(courseTest["A"],happyThing = True)
 #print("G's nodes are ", list(G.nodes))
 top = list(nx.topological_sort(G))
+#print("first el of top: ", top[0])
 if not outDegree:
     for node in top:
         node.set_runningInTotal(G)
 else:
     top = list(reversed(top))
     for node in top:
+        #print("node: ", node)
         node.set_runningOutTotal(G)
 
 #now need to set the attribute
