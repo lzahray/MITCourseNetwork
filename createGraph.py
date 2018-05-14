@@ -64,7 +64,7 @@ def create_course_dict(courseList):
         else:
             pass
             #print("found duplicate course for: ", course.name)
-    course_dict["PERMISSION"] = Course("PERMISSION",None,None,True)
+    course_dict["PERMISSION"] = Course("PERMISSION",None,None,True, "Permission of instructor")
     return course_dict
 
 
@@ -160,7 +160,7 @@ from ingestCatalog import ingest_catalog
 import pdb
 
 #pdb.set_trace()
-outDegree = True
+outDegree = False
 courseList, subjectToMaster = ingest_catalog()
 print("ingested")
 
@@ -192,15 +192,15 @@ if not outDegree:
         #print("name: ",node.name)
         myInDict[node] = node.runningInTotal
     #nx.set_node_attributes(G,myInDict,"runningInTotal")
-        G.add_node(node,course = node.course, undergrad=node.undergrad, runningInTotal = float(node.runningInTotal))
+        G.add_node(node,course = node.course, undergrad=node.undergrad, runningInTotal = float(node.runningInTotal), description = node.description)
 else:
     myOutDict = {}
     for node in top:
         #print("name: ",node.name)
         myOutDict[node] = node.runningOutTotal
     #nx.set_node_attributes(G,myOutDict,"runningOutTotal")
-        G.add_node(node,course = node.course, undergrad=node.undergrad, runningOutTotal = float(node.runningOutTotal))
-nx.write_graphml(G, "outdegreeGIRsGrouped.graphml")
+        G.add_node(node,course = node.course, undergrad=node.undergrad, runningOutTotal = float(node.runningOutTotal), description=node.description)
+nx.write_graphml(G, "indegreeGIRsGrouped.graphml")
 #G = createGraph(courseTest, False)
 print("created")
 

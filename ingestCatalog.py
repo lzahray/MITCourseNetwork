@@ -37,7 +37,7 @@ def ingest_catalog():
                     #we've already done this class (effectively) - skip it
                     pass
                 else:
-                    newCourse = Course(actualName, parse_req_string(row[5]), None, row[4] == 'U')
+                    newCourse = Course(actualName, parse_req_string(row[5]), None, row[4] == 'U', row[3])
                     courses.append(newCourse)
                     masterClassesSeen.add(actualName)
                 #if row[1]== "CC.8022":

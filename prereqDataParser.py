@@ -2,7 +2,7 @@ import pdb
 
 girs = {"GIR:BIOL":"7","GIR:CAL1":"18","GIR:CAL2":"18","GIR:CHEM":"5","GIR:PHY1":"8","GIR:PHY2":"8"} 
 class Course():
-    def __init__(self, name, preReqs,coReqs,undergrad):
+    def __init__(self, name, preReqs,coReqs,undergrad, description=None):
         #coreqs is defunct
         self.name = name #course name
         #either one string (if one class is prereq) or one ReqList (ReqList is recursive)
@@ -15,6 +15,7 @@ class Course():
             self.course = name.split(".")[0] #for automatically getting course number
         self.runningInTotal = 0
         self.runningOutTotal = 0
+        self.description = description
         #self.possibilities = None #don't think we need this actually
     def __str__(self):
         return self.name
