@@ -1916,7 +1916,7 @@
       <data key="d2">0.0</data>
     </node>
     <node id="GIR:CHEM">
-      <data key="d0">GIR:CHEM</data>
+      <data key="d0">5</data>
       <data key="d1">True</data>
       <data key="d2">0.0</data>
     </node>
@@ -5381,7 +5381,7 @@
       <data key="d2">1.0</data>
     </node>
     <node id="GIR:BIOL">
-      <data key="d0">GIR:BIOL</data>
+      <data key="d0">7</data>
       <data key="d1">True</data>
       <data key="d2">0.0</data>
     </node>
@@ -5906,12 +5906,12 @@
       <data key="d2">1.0</data>
     </node>
     <node id="GIR:PHY1">
-      <data key="d0">GIR:PHY1</data>
+      <data key="d0">8</data>
       <data key="d1">True</data>
       <data key="d2">0.0</data>
     </node>
     <node id="GIR:PHY2">
-      <data key="d0">GIR:PHY2</data>
+      <data key="d0">8</data>
       <data key="d1">True</data>
       <data key="d2">2.0</data>
     </node>
@@ -13101,12 +13101,12 @@
       <data key="d2">0.0</data>
     </node>
     <node id="GIR:CAL1">
-      <data key="d0">GIR:CAL1</data>
+      <data key="d0">18</data>
       <data key="d1">True</data>
       <data key="d2">0.0</data>
     </node>
     <node id="GIR:CAL2">
-      <data key="d0">GIR:CAL2</data>
+      <data key="d0">18</data>
       <data key="d1">True</data>
       <data key="d2">1.0</data>
     </node>

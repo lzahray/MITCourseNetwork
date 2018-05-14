@@ -1,5 +1,6 @@
 import pdb
 
+girs = {"GIR:BIOL":"7","GIR:CAL1":"18","GIR:CAL2":"18","GIR:CHEM":"5","GIR:PHY1":"8","GIR:PHY2":"8"} 
 class Course():
     def __init__(self, name, preReqs,coReqs,undergrad):
         #coreqs is defunct
@@ -8,7 +9,10 @@ class Course():
         self.preReqs = preReqs 
         self.coReqs = coReqs
         self.undergrad = undergrad #true if Undergrad, false if grad
-        self.course = name.split(".")[0] #for automatically getting course number
+        if name in girs:
+            self.course = girs[name]
+        else:
+            self.course = name.split(".")[0] #for automatically getting course number
         self.runningInTotal = 0
         self.runningOutTotal = 0
         #self.possibilities = None #don't think we need this actually
