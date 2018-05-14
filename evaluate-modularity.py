@@ -7,8 +7,10 @@ import sys
 import sklearn.metrics
 import networkx as nx
 import pdb
+import glob
+import numpy as np
 
-def evaluate_nmi(filename, col_id, col_modularity):
+def evaluate_nmi(courses, modularities):
     """
     Take a gephi graph output csv table and evaluate the mutual information
     on its modularity and course number.
@@ -19,18 +21,9 @@ def evaluate_nmi(filename, col_id, col_modularity):
     :return normalized mutual information score
     """
 
-    ids = []
-    modularities = []
+    return sklearn.metrics.normalized_mutual_info_score(courses, modularities)
 
-    with open(filename, 'rt') as csvfile:
-        reader = csv.reader(csvfile, delimiter=",")
-        for row in reader:
-            ids.append(row[col_id])
-            modularities.append(row[col_modularity])
-
-    return sklearn.metrics.normalized_mutual_info_score(ids, modularities)
-
-def evaluate_purity(filename, col_id, col_modularity):
+def evaluate_purity(ids, modularities):
     """
     Take a gephi graph output csv table and calculate the purity
     score of its modularity and course number.
@@ -40,15 +33,8 @@ def evaluate_purity(filename, col_id, col_modularity):
     :param int col_modularity: 0-indexed index of column containg modularity class
     :return purity score
     """
-    # TODO: this is just my own thing, might not actually be offical 'purity'
-    ids = []
-    modularities = []
 
-    with open(filename, 'rt') as csvfile:
-        reader = csv.reader(csvfile, delimiter=",")
-        for row in reader:
-            ids.append(row[col_id])
-            modularities.append(row[col_modularity])
+    
 
     # find the percent of courses that agree with the majority in their
     # modularity group
@@ -80,15 +66,11 @@ def evaluate_purity(filename, col_id, col_modularity):
         if maj_label[modularity] == course_num:
             right += 1
         else:
-            print(course, " is not ", maj_label[modularity])
             wrong +=1
-
-    print("right: ",right)
-    print("wrong: ",wrong)
 
     return right / (right + wrong)
 
-def evaluate_f_measure(filename, col_id, col_modularity):
+def evaluate_f_measure(ids, modularities):
     """
     Take a gephi graph output csv table and evaluate the f-measure
     on its modularity and course number.
@@ -98,15 +80,6 @@ def evaluate_f_measure(filename, col_id, col_modularity):
     :param int col_modularity: 0-indexed index of column containg modularity class
     :return f-measure score
     """
-
-    ids = []
-    modularities = []
-
-    with open(filename, 'rt') as csvfile:
-        reader = csv.reader(csvfile, delimiter=",")
-        for row in reader:
-            ids.append(row[col_id])
-            modularities.append(row[col_modularity])
 
     # find the percent of courses that agree with the majority in their
     # modularity group
@@ -133,7 +106,7 @@ def evaluate_f_measure(filename, col_id, col_modularity):
     return sklearn.metrics.f1_score([maj_label[m] for m in modularities], [i.split('.')[0] for i in ids], average='weighted')
 
     
-def evaluate_ari(filename, col_id, col_modularity):
+def evaluate_ari(ids, modularity):
     """
     Take a gephi graph output csv table and evaluate the adjusted rand index
     on its modularity and course number.
@@ -144,14 +117,6 @@ def evaluate_ari(filename, col_id, col_modularity):
     :return adjusted rand index
     """
 
-    ids = []
-    modularities = []
-
-    with open(filename, 'rt') as csvfile:
-        reader = csv.reader(csvfile, delimiter=",")
-        for row in reader:
-            ids.append(row[col_id])
-            modularities.append(row[col_modularity])
 
     # find the percent of courses that agree with the majority in their
     # modularity group
@@ -190,10 +155,8 @@ def evaluate_directed_modularity(filename):
 
     for node in G.nodes(data=True):
         mod_class = node[1]['Modularity Class']
-        print('mod_class: ',mod_class)
         if mod_class not in communities:
             communities[mod_class] = set([])
-        print("node, ",node[0])
         communities[mod_class].add(node[0])
 
     return nx.algorithms.community.quality.modularity(G, list(communities.values()))
@@ -202,37 +165,66 @@ def evaluate_directed_modularity(filename):
 
 if __name__ == '__main__':
     try:
-        assert len(sys.argv) == 4
+        # evaluate all the npy files in a directory
+        directory = "comm-data/"
 
-        filename = sys.argv[1]
-        col_id = int(sys.argv[2])
-        col_modularity = int(sys.argv[3])
+        nmi = []
+        purity = []
+        f1 = []
+        ari = []
+        mod = []
 
-        # external evaluation metrics
-        nmi_result = evaluate_nmi(filename, col_id, col_modularity)
-        purity_result = evaluate_purity(filename, col_id, col_modularity)
-        f1_result = evaluate_f_measure(filename, col_id, col_modularity)
-        ari_result = evaluate_ari(filename, col_id, col_modularity)
+        points = []
 
-        # internal evaluation metrics
-        mod_result = evaluate_directed_modularity("gephi-files/community.graphml")
+        for f in glob.glob(directory+"*.npy"):
+            print("===")
+            print("===")
+            print("===")
+            print(f)
 
-        print("--- External Evaluation Metrics ---")
-        print("NMI: ",nmi_result)
-        print("Purity: ",purity_result)
-        print("F1 Measure: ",f1_result)
-        print("Adjusted Rand Index: ", ari_result)
+            points.append(float(f.split("-")[2][:-4]))
+
+            x = np.load(f)
+            x = x[()]
+
+            ids = list(x.keys())
+            modularities = ([x[i] for i in ids])
 
 
-        print("--- Internal Evaluation Metrics ---")
-        print("Directed Modularity: ", mod_result)
+            print("--- External Evaluation Metrics ---")
+            # external evaluation metrics
+            nmi_result = evaluate_nmi(ids, modularities)
+            print("NMI: ",nmi_result)
+            purity_result = evaluate_purity(ids, modularities)
+            print("Purity: ",purity_result)
+            f1_result = evaluate_f_measure(ids, modularities)
+            print("F1 Measure: ",f1_result)
+            ari_result = evaluate_ari(ids, modularities)
+            print("Adjusted Rand Index: ", ari_result)
+
+            print("--- Internal Evaluation Metrics ---")
+            # internal evaluation metrics
+            mod_result = evaluate_directed_modularity("gephi-files/community.graphml")
+            print("Directed Modularity: ", mod_result)
+
+            nmi.append(nmi_result)
+            purity.append(purity_result)
+            f1.append(f1_result)
+            ari.append(ari_result)
+            mod.append(mod_result)
+
+        pdb.set_trace()
+
+    
+
+
         
 
 
 
 
     except AssertionError:
-        print("Usage: evaluate-modularity.py [filename] [col_id] [col_modularity]")
+        print("Usage: evaluate-modularity.py [filename]")
     
 
 
