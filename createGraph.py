@@ -74,7 +74,10 @@ def createGraph(courseDict, outdegree, subjectToMaster):
     #nodes
     for courseName in courseDict.keys():
         course = courseDict[courseName]
-        G.add_node(course, course = course.course, undergrad=course.undergrad)
+        if not outdegree:
+            G.add_node(course)
+        else:
+            G.add_node(course)
     #edges
     for courseName in courseDict.keys():
         #print("courseName: ",courseName)
@@ -94,16 +97,20 @@ def createGraph(courseDict, outdegree, subjectToMaster):
                 print("we had to create a new thing for ",preReq)
                 print("while we're looking at the course ", courseName)
                 courseOfPreReq = Course(preReq, None, None, True)
-                courseDict[preReq] = courseOfPreReq
+                G.add_node(courseOfPreReq)
+                #courseDict[preReq] = courseOfPreReq
             else:
                 if actualName in courseDict:
                     courseOfPreReq = courseDict[actualName]
                 else:
                     courseOfPreReq = Course(preReq,None,None,True)
-                    courseDict[preReq] = courseOfPreReq
+                    G.add_node(courseOfPreReq)
+                    #courseDict[preReq] = courseOfPreReq
                     print("weird case of creating new thing for ",prereq, " with actual name ", actualName)
             myFunSum += currentScore[preReq]
-            
+            if not (courseOfPreReq in G.nodes()) or not (course in G.nodes()):
+                print("TROUBLE")
+            #print("\n \n at name ", courseName, "edge from ", courseOfPreReq in G.nodes(), " to ", course in G.nodes())
             G.add_edge(courseOfPreReq,course,weight=currentScore[preReq])
         #print("SUM: ",myFunSum)
     return G
@@ -166,6 +173,8 @@ G = createGraph(courseDict, outDegree, subjectToMaster)
 #G.add_node(courseTest["A"],happyThing = True)
 #print("G's nodes are ", list(G.nodes))
 top = list(nx.topological_sort(G))
+print("top length is ", len(top))
+print("number of nodes is ", len(list(G.nodes())))
 #print("first el of top: ", top[0])
 if not outDegree:
     for node in top:
@@ -178,11 +187,19 @@ else:
 
 #now need to set the attribute
 if not outDegree:
+    myInDict = {}
     for node in top:
-        G.add_node(node, runningInTotal=node.runningInTotal)
+        #print("name: ",node.name)
+        myInDict[node] = node.runningInTotal
+    #nx.set_node_attributes(G,myInDict,"runningInTotal")
+        G.add_node(node,course = node.course, undergrad=node.undergrad, runningInTotal = float(node.runningInTotal))
 else:
+    myOutDict = {}
     for node in top:
-        G.add_node(node, runningOutTotal = node.runningOutTotal)
+        #print("name: ",node.name)
+        myOutDict[node] = node.runningOutTotal
+    #nx.set_node_attributes(G,myOutDict,"runningOutTotal")
+        G.add_node(node,course = node.course, undergrad=node.undergrad, runningOutTotal = float(node.runningOutTotal))
 nx.write_graphml(G, "outdegree.graphml")
 #G = createGraph(courseTest, False)
 print("created")
