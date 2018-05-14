@@ -5,9 +5,10 @@
 import csv
 import sys
 import sklearn.metrics
+import networkx as nx
 import pdb
 
-def evaluate(filename, col_id, col_modularity):
+def evaluate_nmi(filename, col_id, col_modularity):
     """
     Take a gephi graph output csv table and evaluate the mutual information
     on its modularity and course number.
@@ -27,8 +28,17 @@ def evaluate(filename, col_id, col_modularity):
             ids.append(row[col_id])
             modularities.append(row[col_modularity])
 
-    #return sklearn.metrics.normalized_mutual_info_score(ids, modularities)
+    return sklearn.metrics.normalized_mutual_info_score(ids, modularities)
 
+def evaluate_purity(filename, col_id, col_modularity):
+    ids = []
+    modularities = []
+
+    with open(filename, 'rt') as csvfile:
+        reader = csv.reader(csvfile, delimiter=",")
+        for row in reader:
+            ids.append(row[col_id])
+            modularities.append(row[col_modularity])
 
     # Alternatively, find the percent of courses that agree with the majority in their
     # modularity group
@@ -69,6 +79,30 @@ def evaluate(filename, col_id, col_modularity):
     return right / (right + wrong)
 
 
+def evaluate_directed_modularity(filename):
+    """
+    Take a .graphml file and evaluate the directed modularity of its classification.
+
+    :param str filename: Filename of graphml file to load.
+    :return modularity score of graph communities
+    """
+
+    G = nx.read_graphml(filename)
+
+    # function expects list of sets of nodes
+    communities = {}
+
+    for node in G.nodes(data=True):
+        mod_class = node[1]['Modularity Class']
+        print('mod_class: ',mod_class)
+        if mod_class not in communities:
+            communities[mod_class] = set([])
+        print("node, ",node[0])
+        communities[mod_class].add(node[0])
+
+    return nx.algorithms.community.quality.modularity(G, list(communities.values()))
+
+
 
 if __name__ == '__main__':
     try:
@@ -78,9 +112,23 @@ if __name__ == '__main__':
         col_id = int(sys.argv[2])
         col_modularity = int(sys.argv[3])
 
-        result = evaluate(filename, col_id, col_modularity)
+        # external evaluation metrics
+        nmi_result = evaluate_nmi(filename, col_id, col_modularity)
+        purity_result = evaluate_purity(filename, col_id, col_modularity)
 
-        print(result)
+        # internal evaluation metrics
+        mod_result = evaluate_directed_modularity("gephi-files/community.graphml")
+
+        print("--- Internal Evaluation Metrics ---")
+        print("NMI: ",nmi_result)
+        print("Purity: ",purity_result)
+
+        print("--- Internal Evaluation Metrics ---")
+        print("Directed Modularity: ", mod_result)
+
+
+
+
     except AssertionError:
         print("Usage: evaluate-modularity.py [filename] [col_id] [col_modularity]")
     
