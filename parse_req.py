@@ -4,8 +4,9 @@ from prereqDataParser import ReqList
 # parses a raw prereq string from a catalog entry assuming the syntax laid out
 # on the registrar's site
 # returns a (nested) ReqList data structure
-specialStrings = {"GIR:PHY2":ReqList(["8.02","8.021","8.022","CC.802","CC.8022","ES.802","ES.8022"],False), "GIR:CAL1":ReqList(["18.01","18.01A", "CC.181A","ES.1801","ES.181A"],False), "GIR:PHY1":ReqList(["8.01","8.01L","8.011","8.012","CC.801","CC.8012","ES.801","ES.8012"],False),
-                  "GIR:CHEM":ReqList(["3.091","5.111","5.112","CC.5111","ES.3091","ES.5111","ES.5112"],False), "GIR:BIOL":ReqList(["7.012","7.013","7.014","7.015","7.016","ES.7012","ES.7013"],False), "GIR:CAL2":ReqList(["18.02","18.022","18.02A","CC.182A","CC.1802","ES.1802","ES.182A"],False)}
+#specialStrings = {"GIR:PHY2":ReqList(["8.02","8.021","8.022","CC.802","CC.8022","ES.802","ES.8022"],False), "GIR:CAL1":ReqList(["18.01","18.01A", "CC.181A","ES.1801","ES.181A"],False), "GIR:PHY1":ReqList(["8.01","8.01L","8.011","8.012","CC.801","CC.8012","ES.801","ES.8012"],False),
+#                  "GIR:CHEM":ReqList(["3.091","5.111","5.112","CC.5111","ES.3091","ES.5111","ES.5112"],False), "GIR:BIOL":ReqList(["7.012","7.013","7.014","7.015","7.016","ES.7012","ES.7013"],False), "GIR:CAL2":ReqList(["18.02","18.022","18.02A","CC.182A","CC.1802","ES.1802","ES.182A"],False)}
+specialStrings = {}
 stringsToChangeLong = {"PHYSICS II":"GIR:PHY2","PERMISSION OF IDSS ACADEMIC OFFICE.":"PERMISSION", "PERMISSION OF TPP ACADEMIC OFFICE.":"PERMISSION","FIRST-YEAR UNDERGRADUATE STANDING":'',"COMMITMENT TO REGISTER AS A FRESHMAN IN THE FALL":'',
                   "ONE INTERMEDIATE SUBJECT IN FRENCH":'',"MUST APPLY TO THE GRADUATE CONSORTIUM IN WOMEN'S STUDIES":'', "ONE CI-H/HW SUBJECT":'',"ONE CI-H/CI-HW SUBJECT":'','Must have read "The Society of Mind" and "The Emotion Machine"'.upper(): '',
                    "RECOMMENDED BUT NOT NECESSARY":'',"Knowledge of differentiation and elementary integration".upper():'',"ONE SUBJECT IN COMPARITIVE MEDIA STUDIES":'',"ONE SUBJECT IN CMS OR MAS":'',

@@ -160,7 +160,7 @@ from ingestCatalog import ingest_catalog
 import pdb
 
 #pdb.set_trace()
-outDegree = True
+outDegree = False
 courseList, subjectToMaster = ingest_catalog()
 print("ingested")
 
@@ -200,7 +200,7 @@ else:
         myOutDict[node] = node.runningOutTotal
     #nx.set_node_attributes(G,myOutDict,"runningOutTotal")
         G.add_node(node,course = node.course, undergrad=node.undergrad, runningOutTotal = float(node.runningOutTotal))
-nx.write_graphml(G, "outdegree.graphml")
+nx.write_graphml(G, "indegreeGIRsGrouped.graphml")
 #G = createGraph(courseTest, False)
 print("created")
 
