@@ -202,7 +202,6 @@ else:
         G.add_node(node,course = node.course, undergrad=node.undergrad, runningOutTotal = float(node.runningOutTotal))
 nx.write_graphml(G, "indegreeGIRsGrouped.graphml")
 #G = createGraph(courseTest, False)
-print("created")
 
 
 
