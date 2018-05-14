@@ -153,7 +153,7 @@ from ingestCatalog import ingest_catalog
 import pdb
 
 #pdb.set_trace()
-outDegree = True
+outDegree = False
 courseList, subjectToMaster = ingest_catalog()
 print("ingested")
 
@@ -183,9 +183,14 @@ if not outDegree:
 else:
     for node in top:
         G.add_node(node, runningOutTotal = node.runningOutTotal)
-nx.write_graphml(G, "outdegree.graphml")
+
+if outDegree:
+    nx.write_graphml(G, "outdegree.graphml")
+    print("created outdegree.graphml")
+else:
+    nx.write_graphml(G, "indegree.graphml")
+    print("created indegree.graphml")
 #G = createGraph(courseTest, False)
-print("created")
 
 
 
