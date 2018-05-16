@@ -29,6 +29,8 @@ if __name__ == '__main__':
                 G.add_node(c, fluid_comm = i)
                 out_dict[c] = i
 
+        np.save("comm-data/fluid.npy", np.asarray(out_dict))
+
 
     nx.write_graphml(G, "fluid-communities.graphml")
     

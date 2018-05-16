@@ -1,0 +1,16 @@
+modulairites:
+
+ - true departments indegree graph:
+ - true departments outdegree graph:
+ - louvain modulairty of different reoslutions:
+ - fluid communities:
+(try with different numbers)
+
+note number of communities
+note how graph was constructed (just largest conn comp)
+GIRS grouped?
+zero degree nodes removed, 
+permission removed?
+
+
+

@@ -141,29 +141,45 @@ def evaluate_ari(ids, modularity):
     
     
     return sklearn.metrics.adjusted_rand_score([maj_label[m] for m in modularities], [i.split('.')[0] for i in ids])
-def evaluate_directed_modularity(filename):
+def evaluate_directed_modularity(filename, attr):
     """
     Take a .graphml file and evaluate the directed modularity of its classification.
 
     :param str filename: Filename of graphml file to load.
+    :param atr attr: node attribute name used for community label
     :return modularity score of graph communities
     """
+    default_label = 1000
 
     G = nx.read_graphml(filename)
-# function expects list of sets of nodes
     communities = {}
-
+    # function expects list of sets of nodes
     for node in G.nodes(data=True):
-        mod_class = node[1]['Modularity Class']
+        if attr not in node[1]:
+            mod_class = default_label # put all non classified nodes into some default community
+        else:
+            mod_class = node[1][attr]
         if mod_class not in communities:
             communities[mod_class] = set([])
         communities[mod_class].add(node[0])
+    print(filename, " ",attr)
+    print(len(communities.keys()), " communities.")
 
-    return nx.algorithms.community.quality.modularity(G, list(communities.values()))
+
+    print(nx.algorithms.community.quality.modularity(G, list(communities.values())))
 
 
 
 if __name__ == '__main__':
+    filename = "fluid-communities.graphml"
+
+    evaluate_directed_modularity("fluid-communities.graphml", 'fluid_comm')
+    evaluate_directed_modularity("indegreeGIRsGrouped.graphml", "course")
+    evaluate_directed_modularity("outdegreeGIRsGrouped.graphml", "course")
+
+
+
+    
     try:
         # evaluate all the npy files in a directory
         directory = "comm-data/"
