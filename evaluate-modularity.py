@@ -152,31 +152,54 @@ def evaluate_directed_modularity(filename, attr):
     default_label = 1000
 
     G = nx.read_graphml(filename)
+    G.remove_nodes_from(list(nx.isolates(G)))
     communities = {}
+
+    num_default = 0 
     # function expects list of sets of nodes
     for node in G.nodes(data=True):
         if attr not in node[1]:
             mod_class = default_label # put all non classified nodes into some default community
+            num_default += 1
         else:
             mod_class = node[1][attr]
         if mod_class not in communities:
             communities[mod_class] = set([])
         communities[mod_class].add(node[0])
-    print(filename, " ",attr)
-    print(len(communities.keys()), " communities.")
+    print()
+    print("GraphML File: ",filename, " Label: ",attr)
+    print(len(G.nodes()), " nodes.")
+    print(len(G.edges()), " edges.")
+    print("# default: ",num_default)
+    print("% default: ", num_default / len(G.nodes()))
 
-
-    print(nx.algorithms.community.quality.modularity(G, list(communities.values())))
+    print("Given ",len(communities.keys()), " communities.")
+    print("Directed modularity: ",nx.algorithms.community.quality.modularity(G, list(communities.values())))
 
 
 
 if __name__ == '__main__':
-    filename = "fluid-communities.graphml"
+    #evaluate_directed_modularity("fluid-communities.graphml", 'fluid_comm')
+    #evaluate_directed_modularity("fluid-communities-49_comms.graphml", "fluid_comm")
+    #evaluate_directed_modularity("fluid-communities-10_comms.graphml", "fluid_comm")
+    #evaluate_directed_modularity("indegree-GIRS_grouped-zeros_removed-with_perm_fluid-communities-10_comms.graphml", "fluid_comm")
+    #evaluate_directed_modularity("indegree-GIRS_grouped-zeros_removed-with_perm_fluid-communities-25_comms.graphml", "fluid_comm")
+    #evaluate_directed_modularity("indegree-GIRS_grouped-zeros_removed-with_perm_fluid-communities-50_comms.graphml", "fluid_comm")
 
-    evaluate_directed_modularity("fluid-communities.graphml", 'fluid_comm')
-    evaluate_directed_modularity("indegreeGIRsGrouped.graphml", "course")
-    evaluate_directed_modularity("outdegreeGIRsGrouped.graphml", "course")
+    evaluate_directed_modularity("indegree-GIRS_grouped-zeros_removed-without_perm_fluid-communities-10_comms.graphml", "fluid_comm")
+    evaluate_directed_modularity("indegree-GIRS_grouped-zeros_removed-without_perm_fluid-communities-25_comms.graphml", "fluid_comm")
+    evaluate_directed_modularity("indegree-GIRS_grouped-zeros_removed-without_perm_fluid-communities-50_comms.graphml", "fluid_comm")
 
+    #evaluate_directed_modularity("indegreeGIRsGrouped.graphml", "course")
+    #evaluate_directed_modularity("indegree-GIRS_grouped-zeros_removed-with_perm.graphml", "course")
+    #evaluate_directed_modularity("indegree-GIRS_grouped-zeros_removed-without_perm.graphml", "course")
+    #evaluate_directed_modularity("indegreeGIRsGrouped.graphml", "course")
+    #evaluate_directed_modularity("indegree-GIRS_grouped-zeros_removed-with_perm.graphml", "course")
+    #evaluate_directed_modularity("indegree-GIRS_grouped-zeros_removed-without_perm.graphml", "course")
+
+    #evaluate_directed_modularity("outdegree-GIRS_grouped-zeros_removed-with_perm-louvain2.0.graphml", "Modularity Class")
+
+    pdb.set_trace()
 
 
     
