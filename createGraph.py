@@ -160,49 +160,51 @@ from ingestCatalog import ingest_catalog
 import pdb
 
 #pdb.set_trace()
-outDegree = False
-courseList, subjectToMaster = ingest_catalog()
-print("ingested")
+def actuallyMakeGraph(outDegree):
+#outDegree = False
+    courseList, subjectToMaster = ingest_catalog()
+    print("ingested")
 
-courseDict = create_course_dict(courseList)
-G = createGraph(courseDict, outDegree, subjectToMaster)
-##subToMas = {}
-##for key in courseTest:
-##    subToMas[key] = key
-#G = createGraph(courseTest, outDegree, subToMas)
-#G.add_node(courseTest["A"],happyThing = True)
-#print("G's nodes are ", list(G.nodes))
-top = list(nx.topological_sort(G))
-print("top length is ", len(top))
-print("number of nodes is ", len(list(G.nodes())))
-#print("first el of top: ", top[0])
-if not outDegree:
-    for node in top:
-        node.set_runningInTotal(G)
-else:
-    top = list(reversed(top))
-    for node in top:
-        #print("node: ", node)
-        node.set_runningOutTotal(G)
+    courseDict = create_course_dict(courseList)
+    G = createGraph(courseDict, outDegree, subjectToMaster)
+    ##subToMas = {}
+    ##for key in courseTest:
+    ##    subToMas[key] = key
+    #G = createGraph(courseTest, outDegree, subToMas)
+    #G.add_node(courseTest["A"],happyThing = True)
+    #print("G's nodes are ", list(G.nodes))
+    top = list(nx.topological_sort(G))
+    print("top length is ", len(top))
+    print("number of nodes is ", len(list(G.nodes())))
+    #print("first el of top: ", top[0])
+    if not outDegree:
+        for node in top:
+            node.set_runningInTotal(G)
+    else:
+        top = list(reversed(top))
+        for node in top:
+            #print("node: ", node)
+            node.set_runningOutTotal(G)
 
-#now need to set the attribute
-if not outDegree:
-    myInDict = {}
-    for node in top:
-        #print("name: ",node.name)
-        myInDict[node] = node.runningInTotal
-    #nx.set_node_attributes(G,myInDict,"runningInTotal")
-        G.add_node(node,course = node.course, undergrad=node.undergrad, runningInTotal = float(node.runningInTotal), description = node.description)
-else:
-    myOutDict = {}
-    for node in top:
-        #print("name: ",node.name)
-        myOutDict[node] = node.runningOutTotal
-    #nx.set_node_attributes(G,myOutDict,"runningOutTotal")
-        G.add_node(node,course = node.course, undergrad=node.undergrad, runningOutTotal = float(node.runningOutTotal), description=node.description)
-nx.write_graphml(G, "indegreeGIRsGrouped.graphml")
-#G = createGraph(courseTest, False)
-print("created")
+    #now need to set the attribute
+    if not outDegree:
+        myInDict = {}
+        for node in top:
+            #print("name: ",node.name)
+            myInDict[node] = node.runningInTotal
+        #nx.set_node_attributes(G,myInDict,"runningInTotal")
+            G.add_node(node,course = node.course, undergrad=node.undergrad, runningInTotal = float(node.runningInTotal), description = node.description)
+    else:
+        myOutDict = {}
+        for node in top:
+            #print("name: ",node.name)
+            myOutDict[node] = node.runningOutTotal
+        #nx.set_node_attributes(G,myOutDict,"runningOutTotal")
+            G.add_node(node,course = node.course, undergrad=node.undergrad, runningOutTotal = float(node.runningOutTotal), description=node.description)
+    #nx.write_graphml(G, "indegreeGIRsGrouped.graphml")
+    #G = createGraph(courseTest, False)
+    print("created")
+    return G
 
 
 
